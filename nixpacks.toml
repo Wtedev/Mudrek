@@ -8,7 +8,8 @@ nixPkgs = ["nodejs_20"]
 cmds = [
   "composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader",
   "npm ci",
-  "npm run build"
+  "npm run build && ls -la public/build && test -f public/build/manifest.json && cat public/build/manifest.json",
+  "rm -f public/hot"
 ]
 
 [start]
