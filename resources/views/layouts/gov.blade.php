@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'مدرك 4')</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS URL: {{ asset('css/app.css') }} -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
     <style>
         :root {
             --gov-navy: #0f172a;
@@ -88,7 +90,7 @@
     </style>
     @stack('head')
 </head>
-<body class="min-h-screen text-slate-800 antialiased">
+<body class="test-css-loaded min-h-screen text-slate-800 antialiased">
     <header class="app-header-glass medrek-motion-header sticky top-0 z-50">
         <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-3 px-4 py-3 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4 md:py-3.5">
             <a href="{{ route('home') }}" class="flex items-center justify-center gap-2.5 text-[var(--gov-navy)] md:justify-start">
@@ -153,7 +155,6 @@
             document.querySelectorAll('[data-reveal], [data-reveal-bounce]').forEach(function (el) { io.observe(el); });
         })();
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')
 </body>
