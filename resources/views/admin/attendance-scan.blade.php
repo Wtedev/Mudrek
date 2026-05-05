@@ -12,7 +12,12 @@
             --scan-brand-soft: rgba(25, 51, 153, 0.35);
         }
     </style>
-    @vite(['resources/css/app.css', 'resources/js/admin/attendance-scan.js'])
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/admin/attendance-scan.js'])
+    @else
+        {{-- Scanner logic (html5-qrcode + attendance-scan.js) is bundled via Vite; without a build, this page will not scan until `npm run build` is run. --}}
+        <script src="https://cdn.tailwindcss.com"></script>
+    @endif
 </head>
 <body class="min-h-full bg-zinc-950 text-zinc-100 antialiased">
     <div
