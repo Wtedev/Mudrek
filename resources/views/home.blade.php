@@ -8,7 +8,7 @@
         <div class="mx-auto max-w-5xl">
             <div class="medrek-hero-panel px-2 py-14 text-center md:px-6 md:py-20">
                 <p class="text-sm text-[var(--gov-accent)]">جمعية كفاءات لبناء قدرات الشباب</p>
-                <h1 class="mt-3 text-3xl tracking-tight text-[var(--gov-navy)] md:text-5xl">مدرك 4</h1>
+                <h1 class="mt-3 text-3xl font-bold tracking-tight text-[var(--gov-navy)] md:text-5xl">مدرك 4</h1>
                 <p class="mt-4 text-lg text-[var(--gov-navy-light)] md:text-xl">بوابتك لاختيار تخصصك الجامعي بثقة</p>
                 <p class="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-[var(--gov-muted)]">
                     نرافقك من المرحلة الثانوية لاكتشاف التخصصات، وفهم الحياة الجامعية، وبناء مسارك الأكاديمي بإرشاد نخبة من الأكاديميين . خطوة بخطوة نحو مستقبلك.
