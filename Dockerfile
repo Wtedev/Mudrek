@@ -77,4 +77,4 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
 EXPOSE 8080
 
-CMD ["sh", "-lc", "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+CMD ["sh", "-lc", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
