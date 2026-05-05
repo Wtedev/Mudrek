@@ -33,32 +33,25 @@ FROM php:8.4-cli-alpine AS runtime
 WORKDIR /app
 
 RUN apk add --no-cache \
-        bash \
-        curl \
-        git \
-        icu-dev \
-        libpng-dev \
-        libzip-dev \
-        oniguruma-dev \
-        unzip \
-        zip \
+    icu-dev \
+    libzip-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    oniguruma-dev \
     && docker-php-ext-configure gd \
-    && docker-php-ext-install -j"$(nproc)" \
-        bcmath \
-        ctype \
-        dom \
-        fileinfo \
-        filter \
-        gd \
+        --with-freetype \
+        --with-jpeg \
+    && docker-php-ext-install \
         intl \
-        mbstring \
-        opcache \
+        zip \
+        gd \
         pdo \
         pdo_pgsql \
-        session \
-        tokenizer \
-        xml \
-        zip
+        mbstring \
+        exif \
+        pcntl \
+        bcmath
 
 COPY . .
 COPY --from=composer_deps /app/vendor ./vendor
@@ -78,3 +71,4 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 EXPOSE 8080
 
 CMD ["sh", "-lc", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+
