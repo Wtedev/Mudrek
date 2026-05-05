@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
     {
         if (app()->environment('production')) {
             URL::forceScheme('https');
+
+            request()->server->set('HTTPS', 'on');
         }
 
         Participant::observe(ParticipantObserver::class);
