@@ -113,8 +113,8 @@
         <div class="mx-auto mt-6 space-y-2 [font-family:inherit]" x-data="{ open: null }" x-on:keydown.escape.window="open = null">
             @foreach ([
             ['ar' => 'قياس الميول التخصصية', 'icon' => 'chart-bar', 'static' => true],
-            ['ar' => 'مفتاح النجاح وصناعة الأولويات', 'icon' => 'target', 'axis' => 1, 'presenters' => ['د. عبدالسلام الصغير', 'م. فارس الحميد']],
-            ['ar' => 'كيف أختار التخصص؟', 'icon' => 'compass', 'axis' => 2, 'presenters' => ['أ. أحمد الرفاعي', 'م. فارس الحميد']],
+            ['ar' => 'مفتاح النجاح وصناعة الأولويات', 'icon' => 'target', 'axis' => 1, 'presenters' => ['م. عبدالسلام الصغير', 'أ. فارس الحميد']],
+            ['ar' => 'كيف أختار التخصص؟', 'icon' => 'compass', 'axis' => 2, 'presenters' => ['أ. أحمد الرفاعي', 'أ. فارس الحميد']],
             ['ar' => 'تحديات السنة الجامعية الأولى', 'icon' => 'book', 'axis' => 3, 'presenters' => ['أ. عبدالله الضحيان']],
             ['ar' => 'مسارات مهنية مختلفة', 'icon' => 'route', 'axis' => 4, 'presenters' => ['أ. الوطبان', 'د. السراح', 'أ. أباالخيل', 'د. المعتق']],
             ['ar' => 'الأنظمة والقوانين الأكاديمية للجامعات', 'icon' => 'clipboard', 'axis' => 5, 'presenters' => ['د. عادل السعوي']],
