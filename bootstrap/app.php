@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Railway (and similar) terminate TLS at the edge and forward HTTP to the app with
         // X-Forwarded-Proto. Without trusting the proxy, Request::getScheme() stays "http",
-        // so asset() / @vite() generate http:// URLs on an https page → mixed content → broken CSS/JS.
+        // so asset() generates http:// URLs on an https page → mixed content → broken CSS/JS.
         $middleware->trustProxies(
             at: '*',
             headers: Request::HEADER_X_FORWARDED_FOR
