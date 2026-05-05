@@ -1,11 +1,434 @@
 @import 'tailwindcss';
 
+/* Diodrum Arabic local font faces (self-hosted under /public/fonts) */
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Extralight.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Extralight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Light.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Regular.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Medium.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Semibold.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Bold.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Bold.ttf') format('truetype');
+}
+
+@layer base {
+    body {
+        font-family: 'Diodrum Arabic', sans-serif;
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* Premium full-page card layout (home) */
+.medrek-premium-shell {
+    position: relative;
+    isolation: isolate;
+}
+
+.medrek-hero-stage {
+    position: sticky;
+    top: 0;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+}
+
+.medrek-hero-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(1200px 500px at 15% 10%, rgba(24, 147, 153, 0.12), transparent 70%),
+        radial-gradient(900px 420px at 85% 18%, rgba(24, 147, 153, 0.08), transparent 72%),
+        linear-gradient(180deg, #eef9fa 0%, #e9f6f7 48%, #f2fbfb 100%);
+}
+
+.medrek-hero-panel {
+    max-width: 68rem;
+    margin-inline: auto;
+}
+
+.medrek-card-layer {
+    position: relative;
+    z-index: 2;
+    margin-top: clamp(-6.5rem, -10vw, -4rem);
+}
+
+.medrek-main-card {
+    will-change: transform;
+}
+
+@media (max-width: 640px) {
+    .medrek-card-layer {
+        margin-top: -2.75rem;
+    }
+}
+
+/* ——— هادئ، خفيف، يعتمد على الـ GPU فقط (opacity + transform) ——— */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes medrek-enter-down {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -10px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes medrek-enter-up {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 16px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes medrek-card-in {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 12px, 0) scale(0.992);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+    }
+
+    @keyframes medrek-fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .medrek-motion-header {
+        animation: medrek-enter-down 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .medrek-motion-footer {
+        animation: medrek-enter-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+    }
+
+    .medrek-motion-card {
+        animation: medrek-card-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .medrek-motion-page > * {
+        animation: medrek-enter-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+
+    .medrek-motion-page > *:nth-child(1) {
+        animation-delay: 0.03s;
+    }
+
+    .medrek-motion-page > *:nth-child(2) {
+        animation-delay: 0.08s;
+    }
+
+    .medrek-motion-page > *:nth-child(3) {
+        animation-delay: 0.13s;
+    }
+
+    .medrek-motion-page > *:nth-child(n + 4) {
+        animation-delay: 0.18s;
+    }
+
+    .medrek-hover-lift {
+        transition:
+            transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+            background-color 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .medrek-hover-lift:hover {
+        transform: translate3d(0, -2px, 0);
+    }
+
+    .medrek-hover-lift:active {
+        transform: translate3d(0, 0, 0);
+        transition-duration: 0.12s;
+    }
+
+    /* شريط الشركاء: صفّان متطابقان + translate -50% = حلقة بلا قفزة (يفترض dir=ltr على الـ viewport) */
+    @keyframes medrek-partners-marquee {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+        to {
+            /* ثلاث مجموعات متطابقة: إزاحة ثلث عرض الشريط = مجموعة واحدة قبل إعادة اللف بدون ثغرة */
+            transform: translate3d(calc(-100% / 3), 0, 0);
+        }
+    }
+
+    .medrek-partners-viewport {
+        -webkit-mask-image: linear-gradient(
+            90deg,
+            transparent 0%,
+            #000 8%,
+            #000 92%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        max-width: 72rem;
+    }
+
+    .medrek-partners-track {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        column-gap: 0;
+        width: max-content;
+        animation: medrek-partners-marquee 25s linear infinite;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    /* تباعد موحَّد خارج Tailwind لتطابق عمودي بين النسخ الثلاث بدون أي فراغ زائد عند نقطة اللف */
+    .medrek-partners-viewport .medrek-partners-set {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        align-items: center;
+        column-gap: clamp(1.25rem, 4.5vw, 3rem);
+        padding-block: 0.25rem;
+        margin: 0;
+    }
+
+    .medrek-partners-track--paused {
+        animation-play-state: paused;
+    }
+
+    /* إيقاف مؤقت عند التمرير فوق أي شعار (صفّ واحد متحرّك) */
+    .medrek-partners-viewport:hover .medrek-partners-track:not(.medrek-partners-track--paused) {
+        animation-play-state: paused;
+    }
+
+    /*
+        شريط الشركاء على الجوال: عنصر flex + صورة بدقة عالية → min-width:auto قد يضخّم الشعار كامل الشاشة.
+        حصر الحجم هنا صراحةً (أولاً من مسار CSS الموحّد).
+    */
+    .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+        box-sizing: border-box;
+        min-width: 0;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        max-width: min(8.75rem, 44vw);
+        max-height: 3rem;
+        padding-inline: 0.25rem;
+    }
+
+    .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        display: block;
+        margin-inline: auto;
+        max-width: 100%;
+        max-height: 2.625rem;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        filter: grayscale(100%);
+        transition:
+            filter 0.3s ease-out,
+            transform 0.3s ease-out;
+    }
+
+    .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot:hover .medrek-partner-img {
+        filter: grayscale(0%);
+        transform: scale(1.06);
+    }
+
+    @media (min-width: 640px) {
+        .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+            max-width: min(11rem, 28vw);
+            max-height: 3.75rem;
+            padding-inline: 0.35rem;
+        }
+
+        .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+            max-height: 3.25rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+            max-width: 12rem;
+            max-height: 4.5rem;
+        }
+
+        .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+            max-height: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+            max-height: 4.5rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .medrek-hero-stage {
+        position: relative;
+        min-height: auto;
+    }
+
+    .medrek-card-layer {
+        margin-top: 0;
+    }
+
+    .medrek-main-card {
+        will-change: auto;
+    }
+
+    .medrek-motion-header,
+    .medrek-motion-footer,
+    .medrek-motion-card,
+    .medrek-motion-page > * {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .medrek-hover-lift:hover,
+    .medrek-hover-lift:active {
+        transform: none;
+    }
+
+    .medrek-partners-viewport {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .medrek-partners-track {
+        animation: none !important;
+        display: flex;
+        width: 100%;
+        max-width: 72rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1.25rem;
+    }
+
+    .medrek-partners-set:nth-child(2),
+    .medrek-partners-set:nth-child(3) {
+        display: none;
+    }
+
+    .medrek-partners-set {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 0.75rem;
+        row-gap: 0.75rem;
+        width: 100%;
+    }
+
+    .medrek-partners-set > .medrek-partner-slot {
+        box-sizing: border-box;
+        min-width: 0;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        max-width: min(10rem, 42vw);
+        max-height: 3.75rem;
+    }
+
+    .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        display: block;
+        max-width: 100%;
+        max-height: 3.25rem;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        filter: none;
+        transform: none;
+    }
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans:
+        'Diodrum Arabic', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Beneficiary-facing brand accent */
+    --color-brand-50: #f0fafb;
+    --color-brand-100: #e5f5f6;
+    --color-brand-600: #189399;
+    --color-brand-700: #147a80;
+    --color-brand-800: #10656a;
 }

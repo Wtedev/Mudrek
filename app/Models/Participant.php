@@ -24,10 +24,17 @@ use Illuminate\Support\Str;
     'notes',
     'acceptance_sent_at',
     'checked_in_at',
-    'checkin_token',
 ])]
 class Participant extends Model
 {
+    /**
+     * Route model binding uses the opaque check-in token (never numeric id).
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'checkin_token';
+    }
+
     /**
      * @return array<string, string>
      */

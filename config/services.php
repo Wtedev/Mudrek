@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'whatsapp' => [
+        'group_invite_url' => env('WHATSAPP_GROUP_INVITE_URL'),
+    ],
+
 ];

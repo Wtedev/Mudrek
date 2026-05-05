@@ -1,0 +1,63 @@
+/**
+ * Diodrum Arabic — github.com/nima-shokri/diodrum-arabic
+ * لا تتوفر ملفات woff2 في المستودع؛ تُستخدم woff مع ttf كاحتياطي.
+ */
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Extralight.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Extralight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Light.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Regular.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Medium.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Semibold.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Diodrum Arabic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        url('/fonts/diodrum-arabic/DiodrumArabic-Bold.woff') format('woff'),
+        url('/fonts/diodrum-arabic/DiodrumArabic-Bold.ttf') format('truetype');
+}
