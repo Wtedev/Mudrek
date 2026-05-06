@@ -93,7 +93,7 @@
     <header class="app-header-glass medrek-motion-header sticky top-0 z-50">
         <div class="mx-auto max-w-6xl px-4 pb-4 pt-3 sm:px-6 sm:pb-5 sm:pt-4">
             <a href="{{ route('home') }}" class="flex items-center justify-center gap-2.5 text-white">
-                <img src="{{ asset('images/assests/assests-02.png') }}" alt="شعار ملتقى مدرك" class="h-auto w-full max-w-[5.5rem] object-contain sm:max-w-[6.25rem]">
+                <img src="{{ asset('images/assests/assests-02.webp') }}" alt="شعار ملتقى مدرك" class="h-auto w-full max-w-[5.5rem] object-contain sm:max-w-[6.25rem]">
             </a>
 
         </div>

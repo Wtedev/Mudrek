@@ -1,6 +1,31 @@
 @import 'tailwindcss';
 
-/* Diodrum Arabic local font faces (self-hosted under /public/fonts) */
+/* Lenos local font faces (self-hosted under /public/fonts) */
+@font-face {
+    font-family: 'Lenos';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/lenos%20font/Lenos-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Lenos';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/lenos%20font/Lenos-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Lenos';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/lenos%20font/Lenos-Bold.otf') format('opentype');
+}
+
+/* Diodrum Arabic local font faces (fallback) */
 @font-face {
     font-family: 'Diodrum Arabic';
     font-style: normal;
@@ -63,7 +88,7 @@
 
 @layer base {
     body {
-        font-family: 'Diodrum Arabic', sans-serif;
+        font-family: 'Lenos', 'Diodrum Arabic', sans-serif;
     }
 }
 
@@ -422,7 +447,7 @@
 
 @theme {
     --font-sans:
-        'Diodrum Arabic', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Lenos', 'Diodrum Arabic', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
     /* Beneficiary-facing brand accent */

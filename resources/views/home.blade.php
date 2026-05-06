@@ -27,14 +27,22 @@
 <div class="home-landing medrek-premium-shell">
     <section id="about" class="medrek-hero-stage px-0 py-0">
         <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-b-[2.5rem] bg-[#eef4f6]">
-            <div class="px-5 pb-6 pt-6 text-center sm:px-8 sm:pt-7">
-                <p class="mx-auto max-w-2xl text-2xl font-semibold leading-relaxed text-[var(--gov-accent)] sm:text-3xl">
-                    نرافقك من المرحلة الثانوية لاكتشاف التخصصات، وفهم الحياة الجامعية، وبناء مسارك الأكاديمي بإرشاد نخبة من الأكاديميين . خطوة بخطوة نحو مستقبلك.
+            <div class="px-5 pb-7 pt-6 text-center sm:px-8 sm:pt-7">
+                <p class="mx-auto mb-3 max-w-xl text-sm font-semibold leading-relaxed text-[var(--gov-navy-light)] sm:text-base">
+                    جمعية كفاءات الأهلية<br>لبناء قدرات الشباب
+                </p>
+                <p class="mx-auto max-w-lg text-base font-semibold leading-relaxed text-[var(--gov-accent)] sm:text-lg">
+                    نرافقك من المرحلة الثانوية لاكتشاف التخصصات، وفهم الحياة الجامعية، وبناء مسارك الأكاديمي بإرشاد نخبة من الأكاديميين.
+                </p>
+                <p class="mt-3">
+                    <span class="inline-flex items-center rounded-full bg-[var(--gov-accent-soft)] px-3 py-1 text-xs font-extrabold text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/20 sm:text-sm">
+                        خطوة بخطوة نحو مستقبلك.
+                    </span>
                 </p>
 
-                <div class="relative mx-auto mt-4 w-full max-w-[22rem] sm:max-w-[24rem]">
-                    <img src="{{ asset('images/assests/assests-01.png') }}" alt="صورة طالب" class="mx-auto h-auto w-full object-contain" loading="eager" decoding="async">
-                    <a href="{{ route('registration') }}" class="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-[var(--gov-accent)] px-10 py-2.5 text-2xl font-extrabold text-white shadow-[0_12px_30px_-12px_rgba(24,147,153,0.55)] transition hover:bg-[var(--gov-accent-hover)]">
+                <div class="relative mx-auto -mb-6 mt-5 w-full max-w-[22rem] sm:max-w-[24rem]">
+                    <img src="{{ asset('images/assests/assests-01.webp') }}" alt="صورة طالب" class="mx-auto h-auto w-full object-contain" loading="eager" decoding="async">
+                    <a href="{{ route('registration') }}" class="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-[var(--gov-accent)] px-10 py-2.5 text-lg font-extrabold text-white shadow-[0_12px_30px_-12px_rgba(24,147,153,0.55)] transition hover:bg-[var(--gov-accent-hover)]">
                         سجل الآن
                     </a>
                 </div>
@@ -84,60 +92,43 @@
                         <h2 id="features-heading" class="mt-1 text-base font-bold text-[var(--gov-navy)] md:text-lg">ماذا يقدم لك مدرك؟</h2>
                     </div>
                     @php
-                        $programItems = [
-                            ['title' => 'برامج تدريبية', 'icon' => 'film'],
-                            ['title' => 'ورش عمل', 'icon' => 'briefcase'],
-                            ['title' => 'جلسات حوارية', 'icon' => 'chat'],
-                            ['title' => 'استشارات أكاديمية', 'icon' => 'book'],
-                            ['title' => 'فهم التخصصات', 'icon' => 'magnify'],
-                            ['title' => 'الاستعداد للحياة الجامعية', 'icon' => 'academic'],
-                            ['title' => 'لقاءات توجيهية', 'icon' => 'target'],
-                        ];
-                        $firstRow = array_slice($programItems, 0, 4);
-                        $secondRow = array_slice($programItems, 4);
+                    $programItems = [
+                    ['title' => 'برامج تدريبية', 'icon' => 'film'],
+                    ['title' => 'ورش عمل', 'icon' => 'briefcase'],
+                    ['title' => 'جلسات حوارية', 'icon' => 'chat'],
+                    ['title' => 'استشارات أكاديمية', 'icon' => 'book'],
+                    ['title' => 'فهم التخصصات', 'icon' => 'magnify'],
+                    ['title' => 'الاستعداد للحياة الجامعية', 'icon' => 'academic'],
+                    ['title' => 'لقاءات توجيهية', 'icon' => 'target'],
+                    ];
+                    $firstRow = array_slice($programItems, 0, 4);
+                    $secondRow = array_slice($programItems, 4);
                     @endphp
                     <div class="mx-auto mt-4 max-w-4xl space-y-2" role="list" data-reveal>
-                        <div class="flex flex-wrap items-center justify-center gap-1.5">
+                        <div class="flex flex-nowrap items-center justify-center gap-1.5 px-4 sm:px-6">
                             @foreach ($firstRow as $item)
-                            <a href="#event-details" class="group inline-flex min-h-[2.35rem] min-w-[7.8rem] items-center justify-center gap-1.5 rounded-md border border-slate-200/80 bg-white px-2 py-1 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[8.6rem]" role="listitem">
-                                <span class="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
-                                    <x-medrek-icon :name="$item['icon']" class="h-[0.82rem] w-[0.82rem]" />
+                            <a href="#event-details" class="group inline-flex h-[2.05rem] w-fit shrink-0 items-center justify-center gap-1 rounded-md border border-slate-200/80 bg-white px-1.5 py-0.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)]" role="listitem">
+                                <span class="grid h-5 w-5 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.72rem] w-[0.72rem]" />
                                 </span>
-                                <span class="text-center text-[9px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[10px]">{{ $item['title'] }}</span>
+                                <span class="whitespace-nowrap text-center text-[8px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[9px]">{{ $item['title'] }}</span>
                             </a>
                             @endforeach
                         </div>
-                        <div class="flex flex-wrap items-center justify-center gap-1.5">
-                            @foreach ($secondRow as $item)
-                            <a href="#event-details" class="group inline-flex min-h-[2.35rem] min-w-[7.8rem] items-center justify-center gap-1.5 rounded-md border border-slate-200/80 bg-white px-2 py-1 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[8.6rem]" role="listitem">
-                                <span class="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
-                                    <x-medrek-icon :name="$item['icon']" class="h-[0.82rem] w-[0.82rem]" />
-                                </span>
-                                <span class="text-center text-[9px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[10px]">{{ $item['title'] }}</span>
-                            </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="program-perks" class="scroll-mt-24 border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-12 [font-family:inherit]" aria-labelledby="perks-heading">
-                <div class="mx-auto max-w-3xl px-4 sm:px-6">
-                    <div class="text-center" data-reveal>
-                        <h2 id="perks-heading" class="text-xl font-bold text-[var(--gov-navy)] md:text-2xl">المميزات</h2>
-                    </div>
-                    <div class="mx-auto mt-6" data-reveal>
-                        <div class="flex flex-col gap-4 rounded-2xl border border-[var(--gov-border)] bg-gradient-to-b from-[var(--gov-accent-soft)]/35 to-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:p-6">
-                            <span class="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--gov-accent-soft)] text-[var(--gov-accent)] sm:mx-0 sm:h-14 sm:w-14">
-                                <x-medrek-icon name="chart-up" class="h-6 w-6 sm:h-7 sm:w-7" />
-                            </span>
-                            <p class="min-w-0 flex-1 text-center text-sm font-semibold leading-relaxed text-[var(--gov-navy)] sm:text-start sm:text-base">
-                                خصومات خاصة للاشتراك بدورة القدرات العامة
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
+                        <div class="flex flex-nowrap items-center justify-center gap-1.5 px-4 sm:px-6">
+                            @foreach ($secondRow as $item)
+                            <a href="#event-details" class="group inline-flex h-[2.05rem] w-fit shrink-0 items-center justify-center gap-1 rounded-md border border-slate-200/80 bg-white px-1.5 py-0.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)]" role="listitem">
+                                <span class="grid h-5 w-5 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.72rem] w-[0.72rem]" />
+                                </span>
+                                <span class="whitespace-nowrap text-center text-[8px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[9px]">{{ $item['title'] }}</span>
+                            </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-14" aria-labelledby="topics-heading">
                 <div class="mx-auto max-w-4xl px-4 sm:px-6">
                     <div class="text-center" data-reveal>
@@ -192,6 +183,24 @@
                             </div>
                         </article>
                         @endforeach
+                    </div>
+                </div>
+            </section>
+
+            <section id="program-perks" class="scroll-mt-24 border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-12 [font-family:inherit]" aria-labelledby="perks-heading">
+                <div class="mx-auto max-w-3xl px-4 sm:px-6">
+                    <div class="text-center" data-reveal>
+                        <h2 id="perks-heading" class="text-xl font-bold text-[var(--gov-navy)] md:text-2xl">المميزات</h2>
+                    </div>
+                    <div class="mx-auto mt-6" data-reveal>
+                        <div class="flex flex-col gap-4 rounded-2xl border border-[var(--gov-border)] bg-gradient-to-b from-[var(--gov-accent-soft)]/35 to-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:p-6">
+                            <span class="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--gov-accent-soft)] text-[var(--gov-accent)] sm:mx-0 sm:h-14 sm:w-14">
+                                <x-medrek-icon name="chart-up" class="h-6 w-6 sm:h-7 sm:w-7" />
+                            </span>
+                            <p class="min-w-0 flex-1 text-center text-sm font-semibold leading-relaxed text-[var(--gov-navy)] sm:text-start sm:text-base">
+                                خصومات خاصة للاشتراك بدورة القدرات العامة
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
