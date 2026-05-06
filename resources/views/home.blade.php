@@ -80,8 +80,8 @@
             <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-9 md:py-11 [font-family:inherit]" aria-labelledby="features-heading">
                 <div class="mx-auto max-w-5xl px-4 sm:px-6">
                     <div class="text-center" data-reveal>
-                        <p class="text-[11px] font-semibold text-[var(--gov-muted)] sm:text-xs">محتوى البرنامج</p>
-                        <h2 id="features-heading" class="mt-1.5 text-lg font-bold text-[var(--gov-navy)] md:text-xl">ماذا يقدم لك مدرك؟</h2>
+                        <p class="text-[10px] font-semibold text-[var(--gov-muted)] sm:text-[11px]">محتوى البرنامج</p>
+                        <h2 id="features-heading" class="mt-1 text-base font-bold text-[var(--gov-navy)] md:text-lg">ماذا يقدم لك مدرك؟</h2>
                     </div>
                     @php
                         $programItems = [
@@ -96,24 +96,24 @@
                         $firstRow = array_slice($programItems, 0, 4);
                         $secondRow = array_slice($programItems, 4);
                     @endphp
-                    <div class="mx-auto mt-6 max-w-4xl space-y-2.5" role="list" data-reveal>
-                        <div class="flex flex-wrap items-center justify-center gap-2">
+                    <div class="mx-auto mt-4 max-w-4xl space-y-2" role="list" data-reveal>
+                        <div class="flex flex-wrap items-center justify-center gap-1.5">
                             @foreach ($firstRow as $item)
-                            <a href="#event-details" class="group inline-flex min-h-[2.6rem] min-w-[8.4rem] items-center justify-center gap-2 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[9.4rem]" role="listitem">
-                                <span class="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
-                                    <x-medrek-icon :name="$item['icon']" class="h-[0.95rem] w-[0.95rem]" />
+                            <a href="#event-details" class="group inline-flex min-h-[2.35rem] min-w-[7.8rem] items-center justify-center gap-1.5 rounded-md border border-slate-200/80 bg-white px-2 py-1 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[8.6rem]" role="listitem">
+                                <span class="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.82rem] w-[0.82rem]" />
                                 </span>
-                                <span class="text-center text-[10px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[11px]">{{ $item['title'] }}</span>
+                                <span class="text-center text-[9px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[10px]">{{ $item['title'] }}</span>
                             </a>
                             @endforeach
                         </div>
-                        <div class="flex flex-wrap items-center justify-center gap-2">
+                        <div class="flex flex-wrap items-center justify-center gap-1.5">
                             @foreach ($secondRow as $item)
-                            <a href="#event-details" class="group inline-flex min-h-[2.6rem] min-w-[8.4rem] items-center justify-center gap-2 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[9.4rem]" role="listitem">
-                                <span class="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
-                                    <x-medrek-icon :name="$item['icon']" class="h-[0.95rem] w-[0.95rem]" />
+                            <a href="#event-details" class="group inline-flex min-h-[2.35rem] min-w-[7.8rem] items-center justify-center gap-1.5 rounded-md border border-slate-200/80 bg-white px-2 py-1 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[8.6rem]" role="listitem">
+                                <span class="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.82rem] w-[0.82rem]" />
                                 </span>
-                                <span class="text-center text-[10px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[11px]">{{ $item['title'] }}</span>
+                                <span class="text-center text-[9px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[10px]">{{ $item['title'] }}</span>
                             </a>
                             @endforeach
                         </div>
