@@ -64,7 +64,7 @@
 @php
 $eventVenueLine = 'مدارس قيم التعليمية';
 $eventDate = '17 مايو';
-$eventTime = '4 م - 10 م';
+$eventTime = '4 م - 9 م';
 $eventDuration = 'يوم واحد';
 $whatsappGroupUrl = config('services.whatsapp.group_invite_url');
 @endphp

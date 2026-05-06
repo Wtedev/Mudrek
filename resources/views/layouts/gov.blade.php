@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @if (request()->routeIs('home'))
+        <link rel="preload" as="image" href="{{ asset('images/assests/hero-main.webp') }}" imagesrcset="{{ asset('images/assests/hero-sm.webp') }} 697w, {{ asset('images/assests/hero-md.webp') }} 1257w, {{ asset('images/assests/hero-main.webp') }} 1950w" imagesizes="(max-width: 639px) 22rem, (max-width: 1023px) 24rem, 24rem">
+    @endif
     <title>@yield('title', 'مدرك 4')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -93,7 +96,7 @@
     <header class="app-header-glass medrek-motion-header sticky top-0 z-50">
         <div class="mx-auto max-w-6xl px-4 pb-4 pt-3 sm:px-6 sm:pb-5 sm:pt-4">
             <a href="{{ route('home') }}" class="flex items-center justify-center gap-2.5 text-white">
-                <img src="{{ asset('images/assests/assests-02.webp') }}" alt="شعار ملتقى مدرك" class="h-auto w-full max-w-[5.5rem] object-contain sm:max-w-[6.25rem]">
+                <img src="{{ asset('images/assests/assests-02.webp') }}" alt="شعار ملتقى مدرك" width="2154" height="2715" fetchpriority="high" decoding="async" class="app-main-logo h-auto w-full max-w-[5.5rem] object-contain sm:max-w-[6.25rem]">
             </a>
 
         </div>
@@ -105,7 +108,7 @@
 
     <footer class="medrek-motion-footer mt-auto border-t border-[var(--gov-border)] bg-white/90 py-8 backdrop-blur-sm">
         <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-center md:flex-row md:text-start">
-            <p class="text-xs text-[var(--gov-muted)]">© {{ date('Y') }} جمعية كفاءات لبناء قدرات الشباب — ملتقى مدرك 4</p>
+            <p class="text-xs text-[var(--gov-muted)]">© {{ date('Y') }} جمعية كفاءآت الأهلية لبناء قدرات الشباب — ملتقى مدرك 4</p>
             <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-normal text-[var(--gov-navy-light)]">
                 <a href="{{ route('home') }}#about" class="transition hover:text-[var(--gov-accent)]">نبذة</a>
                 <a

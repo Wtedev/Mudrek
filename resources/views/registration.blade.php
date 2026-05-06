@@ -26,7 +26,7 @@
         }
         $field = 'w-full rounded-md border border-[var(--gov-border)] bg-white px-4 py-3 text-base text-[var(--gov-navy)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gov-navy-light)] focus:ring-2 focus:ring-[var(--gov-navy)]/15';
     @endphp
-    <div class="border-b border-[var(--gov-border)] bg-[var(--gov-surface)] py-10 md:py-14">
+    <div class="py-10 md:py-14">
         <div class="mx-auto max-w-2xl px-6 text-center">
             <h1 class="text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">التسجيل في البرنامج</h1>
             <p class="mt-3 text-sm leading-relaxed text-[var(--gov-muted)]">
@@ -85,11 +85,6 @@
             >
                 <fieldset>
                     <legend class="text-lg font-bold text-[var(--gov-navy)]">هل اطلعت على تفاصيل البرنامج؟</legend>
-                    <p class="mt-2 text-sm text-[var(--gov-muted)]">
-                        يُرجى مراجعة المحتوى المعروض في
-                        <a href="{{ route('home') }}" class="font-semibold text-[var(--gov-accent)] underline-offset-2 hover:underline">الصفحة الرئيسية</a>
-                        قبل المتابعة.
-                    </p>
                     <input type="hidden" name="has_viewed_program_details" x-bind:value="viewedProgram ? '1' : '0'">
                     <label
                         for="program-details-ack"
@@ -102,7 +97,7 @@
                             class="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[var(--gov-accent)] focus:ring-2 focus:ring-[var(--gov-accent)]/30 focus:ring-offset-0"
                         >
                         <span class="text-sm font-medium leading-relaxed text-[var(--gov-navy)]">
-                            أقرّ بأنني اطلعتُ على تفاصيل البرنامج والمحتوى في الصفحة الرئيسية وأرغب بالمتابعة.
+                            اطلعتُ على تفاصيل البرنامج والمحتوى في الصفحة الرئيسية وأرغب بالمتابعة.
                         </span>
                     </label>
                     <p class="mt-2 text-sm text-red-600" x-show="clientErrors.viewedProgram" x-text="clientErrors.viewedProgram"></p>
@@ -120,12 +115,12 @@
                 <h2 class="text-lg font-bold text-[var(--gov-navy)]">البيانات الشخصية</h2>
                 <div>
                     <label for="full_name" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">الاسم الرباعي</label>
-                    <input id="full_name" type="text" name="full_name" value="{{ old('full_name') }}" autocomplete="name" class="{{ $field }}" placeholder="كما في الهوية">
+                    <input id="full_name" type="text" name="full_name" value="{{ old('full_name') }}" autocomplete="name" class="{{ $field }}">
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.full_name" x-text="clientErrors.full_name"></p>
                 </div>
                 <div>
                     <label for="national_id" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">رقم الهوية</label>
-                    <input id="national_id" type="text" name="national_id" value="{{ old('national_id') }}" inputmode="numeric" class="{{ $field }}" placeholder="10 أرقام">
+                    <input id="national_id" type="text" name="national_id" value="{{ old('national_id') }}" inputmode="numeric" class="{{ $field }}">
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.national_id" x-text="clientErrors.national_id"></p>
                 </div>
                 <div>
@@ -135,16 +130,17 @@
                 </div>
                 <div>
                     <label for="email" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">البريد الإلكتروني</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" dir="ltr" autocomplete="email" class="{{ $field }} text-end">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" dir="ltr" autocomplete="email" class="{{ $field }} text-end" placeholder="example@email.com">
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.email" x-text="clientErrors.email"></p>
                 </div>
                 <div>
-                    <label for="nationality" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">الجنسية <span class="font-normal text-[var(--gov-muted)]">(اختياري)</span></label>
+                    <label for="nationality" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">الجنسية</label>
                     <select id="nationality" name="nationality" class="{{ $field }}">
-                        <option value="" @selected(old('nationality', '') === '')>— بدون تحديد —</option>
+                        <option value="">— اختر —</option>
                         <option value="سعودي" @selected(old('nationality') === 'سعودي')>سعودي</option>
                         <option value="غير سعودي" @selected(old('nationality') === 'غير سعودي')>غير سعودي</option>
                     </select>
+                    <p class="mt-1 text-sm text-red-600" x-show="clientErrors.nationality" x-text="clientErrors.nationality"></p>
                 </div>
             </div>
 
@@ -259,15 +255,14 @@
             <div class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--gov-border)] pt-6">
                 <button
                     type="button"
-                    class="rounded-md border border-[var(--gov-border)] bg-white px-5 py-2.5 text-sm font-semibold text-[var(--gov-navy)] transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
-                    @click="prev()"
-                    :disabled="step === 1"
+                    class="rounded-md border border-[var(--gov-accent)]/25 bg-[var(--gov-accent-soft)]/55 px-5 py-2.5 text-sm font-semibold text-[var(--gov-accent)] transition hover:bg-[var(--gov-accent-soft)]"
+                    @click="step === 1 ? window.location.assign('{{ route('home') }}#event-details') : prev()"
                 >
-                    السابق
+                    <span x-text="step === 1 ? 'العودة للتفاصيل' : 'السابق'"></span>
                 </button>
                 <button
                     type="button"
-                    class="rounded-md bg-[var(--gov-navy)] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--gov-navy-light)] disabled:cursor-not-allowed disabled:opacity-40"
+                    class="rounded-md bg-[var(--gov-accent)] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--gov-accent-hover)] disabled:cursor-not-allowed disabled:opacity-40"
                     x-show="step < totalSteps"
                     @click="next()"
                     :disabled="!canGoNext()"
@@ -316,7 +311,8 @@
                         const nid = document.getElementById('national_id')?.value?.trim();
                         const mob = document.getElementById('mobile')?.value?.trim();
                         const em = document.getElementById('email')?.value?.trim();
-                        if (!full || !nid || !mob || !em) return false;
+                        const nat = document.getElementById('nationality')?.value;
+                        if (!full || !nid || !mob || !em || !nat) return false;
                         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
                     }
                     if (this.step === 3) return !!document.getElementById('education_stage')?.value;
@@ -347,12 +343,14 @@
                         const nid = document.getElementById('national_id')?.value?.trim();
                         const mob = document.getElementById('mobile')?.value?.trim();
                         const em = document.getElementById('email')?.value?.trim();
+                        const nat = document.getElementById('nationality')?.value;
                         let ok = true;
                         if (!full) { this.clientErrors.full_name = 'هذا الحقل مطلوب.'; ok = false; }
                         if (!nid) { this.clientErrors.national_id = 'هذا الحقل مطلوب.'; ok = false; }
                         if (!mob) { this.clientErrors.mobile = 'هذا الحقل مطلوب.'; ok = false; }
                         if (!em) { this.clientErrors.email = 'هذا الحقل مطلوب.'; ok = false; }
                         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { this.clientErrors.email = 'صيغة البريد غير صحيحة.'; ok = false; }
+                        if (!nat) { this.clientErrors.nationality = 'يرجى اختيار الجنسية.'; ok = false; }
                         return ok;
                     }
                     if (this.step === 3) {

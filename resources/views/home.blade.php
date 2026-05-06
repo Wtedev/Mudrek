@@ -25,23 +25,35 @@
 
 @section('content')
 <div class="home-landing medrek-premium-shell">
-    <section id="about" class="medrek-hero-stage px-0 py-0">
+    <section id="about" class="medrek-hero-stage instant-above-fold px-0 py-0">
         <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-b-[2.5rem] bg-[#eef4f6]">
             <div class="px-5 pb-7 pt-6 text-center sm:px-8 sm:pt-7">
-                <p class="mx-auto mb-3 max-w-xl text-sm font-semibold leading-relaxed text-[var(--gov-navy-light)] sm:text-base">
+                <p class="mx-auto mb-3 max-w-xl text-sm font-light leading-relaxed text-[var(--gov-muted)]/85 sm:text-base">
                     جمعية كفاءات الأهلية<br>لبناء قدرات الشباب
                 </p>
-                <p class="mx-auto max-w-lg text-base font-semibold leading-relaxed text-[var(--gov-accent)] sm:text-lg">
+                <p class="mx-auto mt-4 max-w-xl px-2 text-base font-semibold leading-relaxed text-[var(--gov-accent)] sm:mt-5 sm:px-4 sm:text-lg">
                     نرافقك من المرحلة الثانوية لاكتشاف التخصصات، وفهم الحياة الجامعية، وبناء مسارك الأكاديمي بإرشاد نخبة من الأكاديميين.
                 </p>
-                <p class="mt-3">
+                <p class="mt-4">
                     <span class="inline-flex items-center rounded-full bg-[var(--gov-accent-soft)] px-3 py-1 text-xs font-extrabold text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/20 sm:text-sm">
-                        خطوة بخطوة نحو مستقبلك.
+                        خطوة بخطوة نحو مستقبلك
                     </span>
                 </p>
 
-                <div class="relative mx-auto -mb-6 mt-5 w-full max-w-[22rem] sm:max-w-[24rem]">
-                    <img src="{{ asset('images/assests/assests-01.webp') }}" alt="صورة طالب" class="mx-auto h-auto w-full object-contain" loading="eager" decoding="async">
+                <div class="hero-image-wrap relative mx-auto -mb-6 mt-5 w-full max-w-[22rem] sm:max-w-[24rem]">
+                    <img
+                        src="{{ asset('images/assests/hero-md.webp') }}"
+                        srcset="{{ asset('images/assests/hero-sm.webp') }} 697w, {{ asset('images/assests/hero-md.webp') }} 1257w, {{ asset('images/assests/hero-main.webp') }} 1950w"
+                        sizes="(max-width: 639px) 22rem, (max-width: 1023px) 24rem, 24rem"
+                        alt="صورة طالب"
+                        width="1950"
+                        height="1597"
+                        fetchpriority="high"
+                        loading="eager"
+                        decoding="async"
+                        onload="this.classList.add('is-loaded'); this.closest('.hero-image-wrap')?.classList.add('is-loaded');"
+                        class="hero-image mx-auto h-auto w-full object-contain"
+                    >
                     <a href="{{ route('registration') }}" class="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-[var(--gov-accent)] px-10 py-2.5 text-lg font-extrabold text-white shadow-[0_12px_30px_-12px_rgba(24,147,153,0.55)] transition hover:bg-[var(--gov-accent-hover)]">
                         سجل الآن
                     </a>
@@ -62,7 +74,7 @@
                         ['label' => 'المكان', 'value' => 'القصيم، بريدة', 'value_secondary' => 'مدارس قيم التعليمية', 'icon' => 'map-pin', 'title' => null],
                         ['label' => 'المدة', 'value' => 'يوم واحد', 'value_secondary' => null, 'icon' => 'clock', 'title' => null],
                         ['label' => 'التاريخ', 'value' => '17 مايو', 'value_secondary' => null, 'icon' => 'calendar', 'title' => null],
-                        ['label' => 'الوقت', 'value' => '4 م - 10 م', 'value_secondary' => null, 'icon' => 'sun', 'title' => 'من 4 مساء إلى 10 مساء'],
+                        ['label' => 'الوقت', 'value' => '4 م - 9 م', 'value_secondary' => null, 'icon' => 'sun', 'title' => 'من 4 مساء إلى 9 مساء'],
                         ] as $card)
                         <div @if (! empty($card['title'])) title="{{ $card['title'] }}" @endif class="flex min-h-0 w-full min-w-0 flex-col items-center gap-2.5 text-center sm:gap-3">
                             <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[var(--gov-accent-soft)] text-[var(--gov-accent)] sm:h-12 sm:w-12">
@@ -88,8 +100,8 @@
             <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-9 md:py-11 [font-family:inherit]" aria-labelledby="features-heading">
                 <div class="mx-auto max-w-5xl px-4 sm:px-6">
                     <div class="text-center" data-reveal>
-                        <p class="text-[10px] font-semibold text-[var(--gov-muted)] sm:text-[11px]">محتوى البرنامج</p>
-                        <h2 id="features-heading" class="mt-1 text-base font-bold text-[var(--gov-navy)] md:text-lg">ماذا يقدم لك مدرك؟</h2>
+                        <p class="text-[10px] font-semibold text-[var(--gov-muted)] sm:text-[11px]">تجربة الملتقى</p>
+                        <h2 id="features-heading" class="mt-1 text-base font-bold text-[var(--gov-navy)] md:text-lg">ماذا ينتظرك في مدرك</h2>
                     </div>
                     @php
                     $programItems = [
@@ -134,7 +146,7 @@
                     <div class="text-center" data-reveal>
                         <p class="text-xs font-semibold text-[var(--gov-muted)] sm:text-sm">البرنامج التفصيلي</p>
                         <h2 id="topics-heading" class="mt-2 text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">الأنشطة الرئيسية للملتقى</h2>
-                        <p class="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[var(--gov-muted)]">تسلسل الأنشطة من البداية إلى الختام، مع إبراز الفقرات الرئيسية وتوضيح مقدمي المحاور.</p>
+                        <p class="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[var(--gov-muted)]">برنامج متكامل يجمع بين الفقرات التفاعلية والجلسات المتخصصة لإثراء تجربتك خلال الملتقى.</p>
                     </div>
 
                     <div class="mt-7 space-y-3 [font-family:inherit]" data-reveal>
@@ -190,7 +202,8 @@
             <section id="program-perks" class="scroll-mt-24 border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-12 [font-family:inherit]" aria-labelledby="perks-heading">
                 <div class="mx-auto max-w-3xl px-4 sm:px-6">
                     <div class="text-center" data-reveal>
-                        <h2 id="perks-heading" class="text-xl font-bold text-[var(--gov-navy)] md:text-2xl">المميزات</h2>
+                        <p class="text-xs font-semibold text-[var(--gov-muted)] sm:text-sm">إضافات تثري تجربتك</p>
+                        <h2 id="perks-heading" class="mt-1 text-xl font-bold text-[var(--gov-navy)] md:text-2xl">مميزات الملتقى</h2>
                     </div>
                     <div class="mx-auto mt-6" data-reveal>
                         <div class="flex flex-col gap-4 rounded-2xl border border-[var(--gov-border)] bg-gradient-to-b from-[var(--gov-accent-soft)]/35 to-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:p-6">
@@ -216,8 +229,8 @@
             @endphp
             <section class="py-14 md:py-16 [font-family:inherit]" aria-labelledby="partners-heading">
                 <div class="mx-auto max-w-6xl px-4 sm:px-6">
-                    <h2 id="partners-heading" class="text-center text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">شركاء النجاح</h2>
-                    <p class="mx-auto mt-2 max-w-xl text-center text-sm text-[var(--gov-muted)]">شعارات الشركاء المعتمدين</p>
+                    <p class="text-center text-xs font-semibold text-[var(--gov-muted)] sm:text-sm">بالتعاون مع</p>
+                    <h2 id="partners-heading" class="mt-1 text-center text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">جهات ساهمت في صناعة الأثر</h2>
 
                     {{-- dir=ltr على الحاوية: حركة translateX لا نهائية متسقة داخل الصفحة dir=rtl --}}
                     <div class="medrek-partners-viewport relative mx-auto mt-8 overflow-hidden py-4" role="region" aria-label="شعارات الشركاء — تمرير تلقائي" dir="ltr">

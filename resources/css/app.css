@@ -127,6 +127,34 @@
     margin-inline: auto;
 }
 
+.app-main-logo {
+    aspect-ratio: 2154 / 2715;
+}
+
+.hero-image-wrap {
+    aspect-ratio: 1950 / 1597;
+    overflow: hidden;
+    contain: paint;
+    background: linear-gradient(90deg, #e7f2f3 20%, #f2f8f9 50%, #e7f2f3 80%);
+    background-size: 220% 100%;
+    animation: medrek-hero-shimmer 1.15s linear infinite;
+}
+
+.hero-image-wrap.is-loaded {
+    animation: none;
+    background: transparent;
+}
+
+.hero-image {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 160ms ease-out;
+}
+
+.hero-image.is-loaded {
+    opacity: 1;
+}
+
 .medrek-card-layer {
     position: relative;
     z-index: 2;
@@ -145,6 +173,15 @@
 
 /* ——— هادئ، خفيف، يعتمد على الـ GPU فقط (opacity + transform) ——— */
 @media (prefers-reduced-motion: no-preference) {
+    @keyframes medrek-hero-shimmer {
+        from {
+            background-position: 100% 50%;
+        }
+        to {
+            background-position: 0 50%;
+        }
+    }
+
     @keyframes medrek-enter-down {
         from {
             opacity: 0;
@@ -201,6 +238,12 @@
 
     .medrek-motion-page > * {
         animation: medrek-enter-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+
+    .medrek-motion-page > .instant-above-fold {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .medrek-motion-page > *:nth-child(1) {
