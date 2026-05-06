@@ -25,6 +25,7 @@
             }
         }
         $field = 'w-full rounded-md border border-[var(--gov-border)] bg-white px-4 py-3 text-base text-[var(--gov-navy)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gov-navy-light)] focus:ring-2 focus:ring-[var(--gov-navy)]/15';
+        $selectField = $field . ' appearance-none pe-12';
     @endphp
     <div class="py-10 md:py-14">
         <div class="mx-auto max-w-2xl px-6 text-center">
@@ -135,11 +136,18 @@
                 </div>
                 <div>
                     <label for="nationality" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">الجنسية</label>
-                    <select id="nationality" name="nationality" class="{{ $field }}">
-                        <option value="">— اختر —</option>
-                        <option value="سعودي" @selected(old('nationality') === 'سعودي')>سعودي</option>
-                        <option value="غير سعودي" @selected(old('nationality') === 'غير سعودي')>غير سعودي</option>
-                    </select>
+                    <div class="relative">
+                        <select id="nationality" name="nationality" class="{{ $selectField }}">
+                            <option value="">— اختر —</option>
+                            <option value="سعودي" @selected(old('nationality') === 'سعودي')>سعودي</option>
+                            <option value="غير سعودي" @selected(old('nationality') === 'غير سعودي')>غير سعودي</option>
+                        </select>
+                        <span class="pointer-events-none absolute inset-y-0 end-4 flex items-center text-[var(--gov-muted)]">
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 0 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.nationality" x-text="clientErrors.nationality"></p>
                 </div>
             </div>
@@ -155,14 +163,21 @@
                 <h2 class="text-lg font-bold text-[var(--gov-navy)]">المرحلة الدراسية</h2>
                 <div>
                     <label for="education_stage" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">اختر مرحلتك</label>
-                    <select id="education_stage" name="education_stage" class="{{ $field }}">
-                        <option value="">— اختر —</option>
-                        @foreach ([
-                            'الأول ثانوي', 'الثاني ثانوي', 'الثالث ثانوي', 'خريج ثانوي', 'طالب جامعي', 'أخرى',
-                        ] as $opt)
-                            <option value="{{ $opt }}" @selected(old('education_stage') === $opt)>{{ $opt }}</option>
-                        @endforeach
-                    </select>
+                    <div class="relative">
+                        <select id="education_stage" name="education_stage" class="{{ $selectField }}">
+                            <option value="">— اختر —</option>
+                            @foreach ([
+                                'الأول ثانوي', 'الثاني ثانوي', 'الثالث ثانوي', 'خريج ثانوي', 'طالب جامعي', 'أخرى',
+                            ] as $opt)
+                                <option value="{{ $opt }}" @selected(old('education_stage') === $opt)>{{ $opt }}</option>
+                            @endforeach
+                        </select>
+                        <span class="pointer-events-none absolute inset-y-0 end-4 flex items-center text-[var(--gov-muted)]">
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 0 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.education_stage" x-text="clientErrors.education_stage"></p>
                 </div>
             </div>
@@ -178,24 +193,38 @@
                 <h2 class="text-lg font-bold text-[var(--gov-navy)]">الجنس والمنطقة</h2>
                 <div>
                     <label for="gender" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">الجنس</label>
-                    <select id="gender" name="gender" class="{{ $field }}">
-                        <option value="">— اختر —</option>
-                        @foreach (['ذكر', 'أنثى'] as $g)
-                            <option value="{{ $g }}" @selected(old('gender') === $g)>{{ $g }}</option>
-                        @endforeach
-                    </select>
+                    <div class="relative">
+                        <select id="gender" name="gender" class="{{ $selectField }}">
+                            <option value="">— اختر —</option>
+                            @foreach (['ذكر', 'أنثى'] as $g)
+                                <option value="{{ $g }}" @selected(old('gender') === $g)>{{ $g }}</option>
+                            @endforeach
+                        </select>
+                        <span class="pointer-events-none absolute inset-y-0 end-4 flex items-center text-[var(--gov-muted)]">
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 0 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.gender" x-text="clientErrors.gender"></p>
                 </div>
                 <div>
                     <label for="region" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">المنطقة</label>
-                    <select id="region" name="region" class="{{ $field }}">
-                        <option value="">— اختر —</option>
-                        @foreach ([
-                            'الرياض', 'مكة المكرمة', 'المدينة المنورة', 'الشرقية', 'القصيم', 'عسير', 'تبوك', 'حائل', 'الحدود الشمالية', 'الباحة', 'الجوف', 'نجران', 'جازان', 'خارج المملكة',
-                        ] as $r)
-                            <option value="{{ $r }}" @selected(old('region') === $r)>{{ $r }}</option>
-                        @endforeach
-                    </select>
+                    <div class="relative">
+                        <select id="region" name="region" class="{{ $selectField }}">
+                            <option value="">— اختر —</option>
+                            @foreach ([
+                                'الرياض', 'مكة المكرمة', 'المدينة المنورة', 'الشرقية', 'القصيم', 'عسير', 'تبوك', 'حائل', 'الحدود الشمالية', 'الباحة', 'الجوف', 'نجران', 'جازان', 'خارج المملكة',
+                            ] as $r)
+                                <option value="{{ $r }}" @selected(old('region') === $r)>{{ $r }}</option>
+                            @endforeach
+                        </select>
+                        <span class="pointer-events-none absolute inset-y-0 end-4 flex items-center text-[var(--gov-muted)]">
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 0 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.region" x-text="clientErrors.region"></p>
                 </div>
             </div>
@@ -235,14 +264,21 @@
                 <h2 class="text-lg font-bold text-[var(--gov-navy)]">مصدر المعرفة بالبرنامج</h2>
                 <div>
                     <label for="referral_source" class="mb-1.5 block text-sm font-semibold text-[var(--gov-navy-light)]">كيف سمعت عن مدرك؟</label>
-                    <select id="referral_source" name="referral_source" x-model="referralSource" class="{{ $field }}" x-init="referralSource = $el.value || ''">
-                        <option value="">— اختر —</option>
-                        @foreach ([
-                            'تويتر', 'إنستقرام', 'تيك توك', 'المدرسة أو الجهة التعليمية', 'صديق أو عائلة', 'إعلان', 'أخرى',
-                        ] as $ref)
-                            <option value="{{ $ref }}" @selected(old('referral_source') === $ref)>{{ $ref }}</option>
-                        @endforeach
-                    </select>
+                    <div class="relative">
+                        <select id="referral_source" name="referral_source" x-model="referralSource" class="{{ $selectField }}" x-init="referralSource = $el.value || ''">
+                            <option value="">— اختر —</option>
+                            @foreach ([
+                                'تويتر', 'إنستقرام', 'تيك توك', 'المدرسة أو الجهة التعليمية', 'صديق أو عائلة', 'إعلان', 'أخرى',
+                            ] as $ref)
+                                <option value="{{ $ref }}" @selected(old('referral_source') === $ref)>{{ $ref }}</option>
+                            @endforeach
+                        </select>
+                        <span class="pointer-events-none absolute inset-y-0 end-4 flex items-center text-[var(--gov-muted)]">
+                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 0 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                     <p class="mt-1 text-sm text-red-600" x-show="clientErrors.referral_source" x-text="clientErrors.referral_source"></p>
                 </div>
                 <div x-show="referralSource === 'أخرى'" x-transition>
