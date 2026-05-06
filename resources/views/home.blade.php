@@ -2,27 +2,45 @@
 
 @section('title', 'الرئيسية — مدرك 4')
 
+@push('head')
+<style>
+    .home-landing .medrek-hero-stage {
+        position: relative;
+        min-height: auto;
+        top: 0;
+    }
+
+    .home-landing .medrek-card-layer {
+        margin-top: -0.9rem;
+    }
+
+    @media (min-width: 768px) {
+        .home-landing .medrek-card-layer {
+            margin-top: -1.15rem;
+        }
+    }
+
+</style>
+@endpush
+
 @section('content')
-<div class="medrek-premium-shell">
-    <section id="about" class="medrek-hero-stage px-4 py-12 md:py-20">
-        <div class="mx-auto max-w-5xl">
-            <div class="medrek-hero-panel px-2 py-14 text-center md:px-6 md:py-20">
-                <p class="text-sm text-[var(--gov-accent)]">جمعية كفاءات لبناء قدرات الشباب</p>
-                <h1 class="mt-3 text-3xl font-bold tracking-tight text-[var(--gov-navy)] md:text-5xl">مدرك 4</h1>
-                <p class="mt-4 text-lg text-[var(--gov-navy-light)] md:text-xl">بوابتك لاختيار تخصصك الجامعي بثقة</p>
-                <p class="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-[var(--gov-muted)]">
+<div class="home-landing medrek-premium-shell">
+    <section id="about" class="medrek-hero-stage px-0 py-0">
+        <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-b-[2.5rem] bg-[#eef4f6]">
+            <div class="px-5 pb-6 pt-6 text-center sm:px-8 sm:pt-7">
+                <p class="mx-auto max-w-2xl text-2xl font-semibold leading-relaxed text-[var(--gov-accent)] sm:text-3xl">
                     نرافقك من المرحلة الثانوية لاكتشاف التخصصات، وفهم الحياة الجامعية، وبناء مسارك الأكاديمي بإرشاد نخبة من الأكاديميين . خطوة بخطوة نحو مستقبلك.
                 </p>
-                <p class="mx-auto mt-4 max-w-xl text-sm text-[var(--gov-muted)]">
-                    يسر جمعية كفاءات لبناء قدرات الشباب دعوتك للتسجيل في ملتقى مدرك 4
-                </p>
-                <div class="mt-10">
-                    <a href="{{ route('registration') }}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--gov-accent)] px-8 py-3.5 text-base font-medium text-white shadow-md shadow-[rgba(24,147,153,0.24)] transition duration-300 ease-out hover:bg-[var(--gov-accent-hover)] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)] focus-visible:ring-offset-2">
+
+                <div class="relative mx-auto mt-4 w-full max-w-[22rem] sm:max-w-[24rem]">
+                    <img src="{{ asset('images/assests/assests-01.png') }}" alt="صورة طالب" class="mx-auto h-auto w-full object-contain" loading="eager" decoding="async">
+                    <a href="{{ route('registration') }}" class="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-[var(--gov-accent)] px-10 py-2.5 text-2xl font-extrabold text-white shadow-[0_12px_30px_-12px_rgba(24,147,153,0.55)] transition hover:bg-[var(--gov-accent-hover)]">
                         سجل الآن
-                        <x-medrek-icon name="arrow-right" class="h-5 w-5 text-white rotate-180" />
                     </a>
                 </div>
             </div>
+
+            <div class="h-1 bg-transparent"></div>
         </div>
     </section>
 
@@ -62,140 +80,153 @@
             <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-9 md:py-11 [font-family:inherit]" aria-labelledby="features-heading">
                 <div class="mx-auto max-w-5xl px-4 sm:px-6">
                     <div class="text-center" data-reveal>
-                        <p class="text-xs font-semibold text-[var(--gov-muted)] sm:text-sm">محتوى البرنامج</p>
-                        <h2 id="features-heading" class="mt-2 text-xl font-bold text-[var(--gov-navy)] md:text-2xl">ماذا يقدم لك مدرك؟</h2>
+                        <p class="text-[11px] font-semibold text-[var(--gov-muted)] sm:text-xs">محتوى البرنامج</p>
+                        <h2 id="features-heading" class="mt-1.5 text-lg font-bold text-[var(--gov-navy)] md:text-xl">ماذا يقدم لك مدرك؟</h2>
                     </div>
-                    <div class="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-2.5 sm:mt-7 sm:grid-cols-3 sm:gap-3" role="list">
-                        @foreach ([
-                        ['title' => 'برامج تدريبية', 'icon' => 'film'],
-                        ['title' => 'ورش عمل', 'icon' => 'briefcase'],
-                        ['title' => 'جلسات حوارية', 'icon' => 'chat'],
-                        ['title' => 'استشارات أكاديمية', 'icon' => 'book'],
-                        ['title' => 'فهم التخصصات', 'icon' => 'magnify'],
-                        ['title' => 'الاستعداد للحياة الجامعية', 'icon' => 'academic'],
-                        ] as $item)
-                        <a href="#event-details" class="group flex min-h-[2.875rem] w-full min-w-0 items-center justify-center gap-2.5 rounded-xl border border-slate-200/80 bg-white px-2.5 py-2 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 [font-family:inherit] hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_10px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:px-3.5 sm:py-2.5" data-reveal role="listitem">
-                            <span class="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded-lg bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100 sm:h-9 sm:w-9">
-                                <x-medrek-icon :name="$item['icon']" class="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem]" />
-                            </span>
-                            <span class="min-w-0 flex-1 text-pretty text-center text-[11px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-xs md:text-[0.8125rem]">
-                                {{ $item['title'] }}
-                            </span>
-                        </a>
-                        @endforeach
+                    @php
+                        $programItems = [
+                            ['title' => 'برامج تدريبية', 'icon' => 'film'],
+                            ['title' => 'ورش عمل', 'icon' => 'briefcase'],
+                            ['title' => 'جلسات حوارية', 'icon' => 'chat'],
+                            ['title' => 'استشارات أكاديمية', 'icon' => 'book'],
+                            ['title' => 'فهم التخصصات', 'icon' => 'magnify'],
+                            ['title' => 'الاستعداد للحياة الجامعية', 'icon' => 'academic'],
+                            ['title' => 'لقاءات توجيهية', 'icon' => 'target'],
+                        ];
+                        $firstRow = array_slice($programItems, 0, 4);
+                        $secondRow = array_slice($programItems, 4);
+                    @endphp
+                    <div class="mx-auto mt-6 max-w-4xl space-y-2.5" role="list" data-reveal>
+                        <div class="flex flex-wrap items-center justify-center gap-2">
+                            @foreach ($firstRow as $item)
+                            <a href="#event-details" class="group inline-flex min-h-[2.6rem] min-w-[8.4rem] items-center justify-center gap-2 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[9.4rem]" role="listitem">
+                                <span class="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.95rem] w-[0.95rem]" />
+                                </span>
+                                <span class="text-center text-[10px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[11px]">{{ $item['title'] }}</span>
+                            </a>
+                            @endforeach
+                        </div>
+                        <div class="flex flex-wrap items-center justify-center gap-2">
+                            @foreach ($secondRow as $item)
+                            <a href="#event-details" class="group inline-flex min-h-[2.6rem] min-w-[8.4rem] items-center justify-center gap-2 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1.5 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[var(--gov-accent)]/30 hover:bg-[var(--gov-accent-soft)]/40 hover:shadow-[0_2px_8px_rgba(24,147,153,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--gov-surface-muted)] sm:min-w-[9.4rem]" role="listitem">
+                                <span class="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-md bg-[var(--gov-accent-soft)]/50 text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/10 transition-[opacity,background-color] group-hover:bg-[var(--gov-accent-soft)] group-hover:opacity-100">
+                                    <x-medrek-icon :name="$item['icon']" class="h-[0.95rem] w-[0.95rem]" />
+                                </span>
+                                <span class="text-center text-[10px] font-semibold leading-snug text-[var(--gov-navy)] sm:text-[11px]">{{ $item['title'] }}</span>
+                            </a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </section>
             <section id="program-perks" class="scroll-mt-24 border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-12 [font-family:inherit]" aria-labelledby="perks-heading">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6">
-        <div class="text-center" data-reveal>
-            <h2 id="perks-heading" class="text-xl font-bold text-[var(--gov-navy)] md:text-2xl">المميزات</h2>
-        </div>
-        <div class="mx-auto mt-6" data-reveal>
-            <div class="flex flex-col gap-4 rounded-2xl border border-[var(--gov-border)] bg-gradient-to-b from-[var(--gov-accent-soft)]/35 to-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:p-6">
-                <span class="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--gov-accent-soft)] text-[var(--gov-accent)] sm:mx-0 sm:h-14 sm:w-14">
-                    <x-medrek-icon name="chart-up" class="h-6 w-6 sm:h-7 sm:w-7" />
-                </span>
-                <p class="min-w-0 flex-1 text-center text-sm font-semibold leading-relaxed text-[var(--gov-navy)] sm:text-start sm:text-base">
-                    خصومات خاصة للاشتراك بدورة القدرات العامة
-                </p>
-            </div>
-        </div>
-    </div>
-            </section>
-
-            <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-14" aria-labelledby="topics-heading">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6">
-        <div class="text-center" data-reveal>
-            <h2 id="topics-heading" class="text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">محاور البرنامج</h2>
-            <p class="mt-2 text-sm text-[var(--gov-muted)]">هيكل المحتوى التدريبي لليوم — اضغط على المحاور الوسطى لعرض المقدّمين أو إخفائهم</p>
-        </div>
-        <div class="mx-auto mt-6 space-y-2 [font-family:inherit]" x-data="{ open: null }" x-on:keydown.escape.window="open = null">
-            @foreach ([
-            ['ar' => 'قياس الميول التخصصية', 'icon' => 'chart-bar', 'static' => true],
-            ['ar' => 'مفتاح النجاح وصناعة الأولويات', 'icon' => 'target', 'axis' => 1, 'presenters' => ['م. عبدالسلام الصغير', 'أ. فارس الحميد']],
-            ['ar' => 'كيف أختار التخصص؟', 'icon' => 'compass', 'axis' => 2, 'presenters' => ['أ. أحمد الرفاعي', 'أ. فارس الحميد']],
-            ['ar' => 'تحديات السنة الجامعية الأولى', 'icon' => 'book', 'axis' => 3, 'presenters' => ['أ. عبدالله الضحيان']],
-            ['ar' => 'مسارات مهنية مختلفة', 'icon' => 'route', 'axis' => 4, 'presenters' => ['أ. الوطبان', 'د. السراح', 'أ. أباالخيل', 'د. المعتق']],
-            ['ar' => 'الأنظمة والقوانين الأكاديمية للجامعات', 'icon' => 'clipboard', 'axis' => 5, 'presenters' => ['د. عادل السعوي']],
-            ['ar' => 'معرض الاستشارات الأكاديمية', 'icon' => 'handshake', 'static' => true],
-            ] as $ti => $topic)
-            @php
-            $topicStatic = ! empty($topic['static']);
-            @endphp
-            <article class="overflow-hidden rounded-lg bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] transition-colors duration-150 data-reveal">
-                @if ($topicStatic)
-                <div class="flex w-full items-start gap-2.5 p-3 text-start sm:gap-3 sm:p-3.5">
-                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[var(--gov-accent-soft)]/70 text-[var(--gov-accent)] sm:h-10 sm:w-10">
-                        <x-medrek-icon :name="$topic['icon']" class="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem]" />
-                    </span>
-                    <span class="min-w-0 flex-1 self-center">
-                        <span class="block text-sm font-semibold leading-snug text-[var(--gov-navy)] sm:text-[0.9375rem]">{{ $topic['ar'] }}</span>
-                    </span>
-                </div>
-                @else
-                <button type="button" class="flex w-full items-start gap-2.5 p-3 text-start outline-none transition-colors hover:bg-slate-50/90 focus-visible:ring-2 focus-visible:ring-[var(--gov-accent)]/25 sm:gap-3 sm:p-3.5" x-on:click="open = open === {{ $ti }} ? null : {{ $ti }}" :aria-expanded="open === {{ $ti }}" aria-controls="topics-axis-panel-{{ $ti }}" id="topics-axis-trigger-{{ $ti }}">
-                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[var(--gov-accent-soft)]/70 text-[var(--gov-accent)] sm:h-10 sm:w-10">
-                        <x-medrek-icon :name="$topic['icon']" class="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem]" />
-                    </span>
-                    <span class="min-w-0 flex-1">
-                        <span class="block text-[11px] font-semibold text-[var(--gov-muted)]">محور {{ $topic['axis'] }}</span>
-                        <span class="mt-0.5 block text-sm font-semibold leading-snug text-[var(--gov-navy)] sm:text-[0.9375rem]">{{ $topic['ar'] }}</span>
-                    </span>
-                    <span class="mt-0.5 inline-flex shrink-0 text-slate-400 transition-transform duration-200 ease-out" :class="open === {{ $ti }} ? 'rotate-180 text-[var(--gov-accent)]' : ''">
-                        <x-medrek-icon name="chevron-down" class="h-4 w-4" />
-                    </span>
-                </button>
-                <div class="grid overflow-hidden transition-[grid-template-rows] duration-200 ease-out" :class="open === {{ $ti }} ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
-                    <div id="topics-axis-panel-{{ $ti }}" class="min-h-0 overflow-hidden" role="region" :aria-hidden="open !== {{ $ti }}">
-                        <div class="border-t border-slate-100 px-3 pb-2.5 pt-1.5 sm:px-3.5 sm:pb-3 sm:pt-2">
-                            <p class="text-[10px] font-semibold text-[var(--gov-muted)] sm:text-[11px]">المقدمون:</p>
-                            <div class="mt-1.5 flex flex-wrap gap-1">
-                                @foreach ($topic['presenters'] as $name)
-                                <span class="inline-flex max-w-full items-center rounded border border-slate-200/90 bg-slate-50 px-1.5 py-0.5 text-[10px] font-medium leading-none text-[var(--gov-navy-light)] sm:px-2 sm:text-[11px]">{{ $name }}</span>
-                                @endforeach
-                            </div>
+                <div class="mx-auto max-w-3xl px-4 sm:px-6">
+                    <div class="text-center" data-reveal>
+                        <h2 id="perks-heading" class="text-xl font-bold text-[var(--gov-navy)] md:text-2xl">المميزات</h2>
+                    </div>
+                    <div class="mx-auto mt-6" data-reveal>
+                        <div class="flex flex-col gap-4 rounded-2xl border border-[var(--gov-border)] bg-gradient-to-b from-[var(--gov-accent-soft)]/35 to-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:p-6">
+                            <span class="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--gov-accent-soft)] text-[var(--gov-accent)] sm:mx-0 sm:h-14 sm:w-14">
+                                <x-medrek-icon name="chart-up" class="h-6 w-6 sm:h-7 sm:w-7" />
+                            </span>
+                            <p class="min-w-0 flex-1 text-center text-sm font-semibold leading-relaxed text-[var(--gov-navy)] sm:text-start sm:text-base">
+                                خصومات خاصة للاشتراك بدورة القدرات العامة
+                            </p>
                         </div>
                     </div>
                 </div>
-                @endif
-            </article>
-            @endforeach
-        </div>
-    </div>
             </section>
 
-@php
-$partnerLogoFiles = [
-'Full Logo WB.png',
-'masarat-1.png',
-'moe_logo.png',
-'Qyem.png',
-'ccaf5315-373d-477c-9781-9252b0511311.png',
-];
-@endphp
-            <section class="py-14 md:py-16 [font-family:inherit]" aria-labelledby="partners-heading">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 id="partners-heading" class="text-center text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">شركاء النجاح</h2>
-        <p class="mx-auto mt-2 max-w-xl text-center text-sm text-[var(--gov-muted)]">شعارات الشركاء المعتمدين</p>
-
-        {{-- dir=ltr على الحاوية: حركة translateX لا نهائية متسقة داخل الصفحة dir=rtl --}}
-        <div class="medrek-partners-viewport relative mx-auto mt-8 overflow-hidden py-4" role="region" aria-label="شعارات الشركاء — تمرير تلقائي" dir="ltr">
-            <div class="medrek-partners-track medrek-partners-track--paused">
-                @foreach ([0, 1, 2] as $loopPart)
-                <div class="medrek-partners-set" @if ($loopPart> 0) aria-hidden="true" @endif
-                    >
-                    @foreach ($partnerLogoFiles as $logoFile)
-                    {{-- ثلاث نسخ متطابقة + translate(-33.333%) لحلقة بلا ثغرة وحشو أفضل على الشاشات الضيقة --}}
-                    <div class="medrek-partner-slot shrink-0">
-                        <img src="{{ asset('images/partners/'.rawurlencode($logoFile)) }}" alt="" width="200" height="64" loading="lazy" decoding="async" draggable="false" class="medrek-partner-img" />
+            <section class="border-y border-[var(--gov-border)]/70 bg-transparent py-10 md:py-14" aria-labelledby="topics-heading">
+                <div class="mx-auto max-w-4xl px-4 sm:px-6">
+                    <div class="text-center" data-reveal>
+                        <p class="text-xs font-semibold text-[var(--gov-muted)] sm:text-sm">البرنامج التفصيلي</p>
+                        <h2 id="topics-heading" class="mt-2 text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">الأنشطة الرئيسية للملتقى</h2>
+                        <p class="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[var(--gov-muted)]">تسلسل الأنشطة من البداية إلى الختام، مع إبراز الفقرات الرئيسية وتوضيح مقدمي المحاور.</p>
                     </div>
-                    @endforeach
+
+                    <div class="mt-7 space-y-3 [font-family:inherit]" data-reveal>
+                        @php
+                        $activities = [
+                        ['type' => 'featured', 'title' => 'قياس الميول التخصصية', 'subtitle' => 'فقرة رئيسية'],
+                        ['type' => 'axis', 'axis' => 1, 'title' => 'طريق التغيير وصناعة الأولويات', 'presenter' => 'م. عبدالسلام الصغير'],
+                        ['type' => 'axis', 'axis' => 2, 'title' => 'كيفية اختيار التخصص الجامعي', 'presenter' => 'أ. فارس الحميد'],
+                        ['type' => 'axis', 'axis' => 3, 'title' => 'الحياة الجامعية', 'presenter' => 'د. ياسر البطي'],
+                        ['type' => 'axis', 'axis' => 4, 'title' => 'تحديات السنة الجامعية الأولى', 'presenter' => 'د. عبدالله الضحيان'],
+                        ['type' => 'axis', 'axis' => 5, 'title' => 'مسارات مهنية', 'presenter' => 'أ. محمد اليحيى'],
+                        ['type' => 'axis', 'axis' => 6, 'title' => 'الأنظمة والقوانين الجامعية', 'presenter' => 'د. عادل السعوي'],
+                        ['type' => 'axis', 'axis' => 7, 'title' => 'مسارات مختلفة', 'presenter' => null],
+                        ['type' => 'featured', 'title' => 'معرض الاستشارات الأكاديمية', 'subtitle' => 'فقرة رئيسية'],
+                        ];
+                        @endphp
+
+                        @foreach ($activities as $activity)
+                        <article class="group rounded-xl border transition-all duration-200 {{ $activity['type'] === 'featured' ? 'border-[var(--gov-accent)]/30 bg-gradient-to-r from-[var(--gov-accent-soft)]/70 via-[var(--gov-accent-soft)]/35 to-white shadow-[0_6px_24px_-18px_rgba(24,147,153,0.55)]' : 'border-slate-200/80 bg-white shadow-[0_2px_10px_-8px_rgba(15,23,42,0.20)] hover:border-[var(--gov-accent)]/25 hover:shadow-[0_8px_22px_-14px_rgba(24,147,153,0.32)]' }}">
+                            <div class="flex items-center gap-3 p-3 sm:gap-4 sm:p-4">
+                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg {{ $activity['type'] === 'featured' ? 'bg-[var(--gov-accent)] text-white' : 'bg-[var(--gov-accent-soft)] text-[var(--gov-accent)]' }}">
+                                    @if ($activity['type'] === 'featured')
+                                    <x-medrek-icon name="sparkles" class="h-5 w-5" />
+                                    @else
+                                    <span class="text-sm font-extrabold">{{ $activity['axis'] }}</span>
+                                    @endif
+                                </span>
+
+                                <div class="min-w-0 flex-1">
+                                    @if ($activity['type'] === 'featured')
+                                    <span class="inline-flex rounded-full bg-white/85 px-2 py-0.5 text-[10px] font-bold text-[var(--gov-accent)] ring-1 ring-[var(--gov-accent)]/20 sm:text-[11px]">{{ $activity['subtitle'] }}</span>
+                                    @else
+                                    <span class="block text-[11px] font-semibold text-[var(--gov-muted)]">محور {{ $activity['axis'] }}</span>
+                                    @endif
+                                    <h3 class="mt-0.5 text-sm font-semibold leading-snug text-[var(--gov-navy)] sm:text-[0.95rem]">{{ $activity['title'] }}</h3>
+                                    @if ($activity['type'] === 'axis' && ! empty($activity['presenter']))
+                                    <p class="mt-1 text-xs font-medium text-[var(--gov-accent-muted)] sm:text-[13px]">{{ $activity['presenter'] }}</p>
+                                    @endif
+                                </div>
+
+                                @if ($activity['type'] === 'featured')
+                                <span class="hidden text-[var(--gov-accent)] sm:inline-flex">
+                                    <x-medrek-icon name="star" class="h-5 w-5" />
+                                </span>
+                                @endif
+                            </div>
+                        </article>
+                        @endforeach
+                    </div>
                 </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
+            </section>
+
+            @php
+            $partnerLogoFiles = [
+            'Full Logo WB.png',
+            'masarat-1.png',
+            'moe_logo.png',
+            'Qyem.png',
+            'ccaf5315-373d-477c-9781-9252b0511311.png',
+            ];
+            @endphp
+            <section class="py-14 md:py-16 [font-family:inherit]" aria-labelledby="partners-heading">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6">
+                    <h2 id="partners-heading" class="text-center text-2xl font-bold text-[var(--gov-navy)] md:text-3xl">شركاء النجاح</h2>
+                    <p class="mx-auto mt-2 max-w-xl text-center text-sm text-[var(--gov-muted)]">شعارات الشركاء المعتمدين</p>
+
+                    {{-- dir=ltr على الحاوية: حركة translateX لا نهائية متسقة داخل الصفحة dir=rtl --}}
+                    <div class="medrek-partners-viewport relative mx-auto mt-8 overflow-hidden py-4" role="region" aria-label="شعارات الشركاء — تمرير تلقائي" dir="ltr">
+                        <div class="medrek-partners-track medrek-partners-track--paused">
+                            @foreach ([0, 1, 2] as $loopPart)
+                            <div class="medrek-partners-set" @if ($loopPart> 0) aria-hidden="true" @endif
+                                >
+                                @foreach ($partnerLogoFiles as $logoFile)
+                                {{-- ثلاث نسخ متطابقة + translate(-33.333%) لحلقة بلا ثغرة وحشو أفضل على الشاشات الضيقة --}}
+                                <div class="medrek-partner-slot shrink-0">
+                                    <img src="{{ asset('images/partners/'.rawurlencode($logoFile)) }}" alt="" width="200" height="64" loading="lazy" decoding="async" draggable="false" class="medrek-partner-img" />
+                                </div>
+                                @endforeach
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>

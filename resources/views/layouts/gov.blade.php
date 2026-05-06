@@ -42,28 +42,30 @@
             line-height: inherit;
         }
         .app-header-glass {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--gov-border);
+            background: linear-gradient(180deg, #14979f 0%, #0f8e96 100%);
+            color: #ffffff;
+            border-bottom-left-radius: 1.75rem;
+            border-bottom-right-radius: 1.75rem;
+            box-shadow: 0 8px 24px -14px rgba(15, 23, 42, 0.35);
         }
         .app-nav-link {
             border-radius: 0.5rem;
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--gov-navy-light);
+            color: rgba(255, 255, 255, 0.88);
             transition:
                 background 0.28s cubic-bezier(0.22, 1, 0.36, 1),
                 color 0.28s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .app-nav-link:hover {
-            background: var(--gov-accent-soft);
-            color: var(--gov-navy);
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
         }
         .app-nav-link.is-active {
-            background: var(--gov-accent-soft);
-            color: var(--gov-accent);
+            background: rgba(255, 255, 255, 0.24);
+            color: #ffffff;
         }
         [data-reveal] {
             opacity: 0;
@@ -89,30 +91,11 @@
 </head>
 <body class="min-h-screen text-slate-800 antialiased">
     <header class="app-header-glass medrek-motion-header sticky top-0 z-50">
-        <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-3 px-4 py-3 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4 md:py-3.5">
-            <a href="{{ route('home') }}" class="flex items-center justify-center gap-2.5 text-[var(--gov-navy)] md:justify-start">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-white to-[var(--gov-accent-soft)] text-[var(--gov-accent)] shadow-sm ring-1 ring-[var(--gov-border)]">
-                    <x-medrek-icon name="bulb" class="h-5 w-5" />
-                </span>
-                <span class="text-lg font-bold tracking-tight">مدرك <span class="font-extrabold text-[var(--gov-accent)]">4</span></span>
+        <div class="mx-auto max-w-6xl px-4 pb-4 pt-3 sm:px-6 sm:pb-5 sm:pt-4">
+            <a href="{{ route('home') }}" class="flex items-center justify-center gap-2.5 text-white">
+                <img src="{{ asset('images/assests/assests-02.png') }}" alt="شعار ملتقى مدرك" class="h-auto w-full max-w-[5.5rem] object-contain sm:max-w-[6.25rem]">
             </a>
-            <nav class="flex flex-wrap items-center justify-center gap-1">
-                <a href="{{ route('home') }}" class="app-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">الرئيسية</a>
-                <a href="{{ route('registration') }}" class="app-nav-link {{ request()->routeIs('registration') ? 'is-active' : '' }}">التسجيل</a>
-                @auth
-                    <a href="{{ route('account.settings.edit') }}" class="app-nav-link {{ request()->routeIs('account.settings.*') ? 'is-active' : '' }}">الحساب</a>
-                @endauth
-            </nav>
-            <div class="hidden items-center justify-end gap-2 md:flex">
-                @guest
-                    <span class="text-xs text-[var(--gov-muted)]">جمعية كفاءات لبناء قدرات الشباب</span>
-                @endguest
-                @auth
-                    <a href="{{ route('account.settings.edit') }}" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--gov-border)] bg-white text-[var(--gov-navy)] shadow-sm transition hover:border-[var(--gov-accent)] hover:text-[var(--gov-accent)]" title="الإعدادات">
-                        <x-medrek-icon name="cog" class="h-5 w-5" />
-                    </a>
-                @endauth
-            </div>
+
         </div>
     </header>
 
