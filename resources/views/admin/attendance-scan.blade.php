@@ -12,8 +12,7 @@
             --scan-brand-soft: rgba(25, 51, 153, 0.35);
         }
     </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/admin/attendance-scan.js'])
 </head>
 <body class="min-h-full bg-zinc-950 text-zinc-100 antialiased">
     <div
@@ -112,7 +111,5 @@
             <a href="{{ url('/admin') }}" class="text-[#8fa3e6] underline-offset-2 hover:text-white hover:underline">العودة إلى لوحة الإدارة</a>
         </footer>
     </div>
-    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-    <script src="{{ asset('js/admin/attendance-scan.js') }}" defer></script>
 </body>
 </html>

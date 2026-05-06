@@ -3,8 +3,8 @@
 use App\Http\Controllers\AccountSettingsController;
 use App\Http\Controllers\Admin\AttendanceScanController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegistrationController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -27,12 +27,5 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/account/settings', [AccountSettingsController::class, 'edit'])->name('account.settings.edit');
     Route::put('/account/settings', [AccountSettingsController::class, 'update'])->name('account.settings.update');
 
-    Route::post('/logout', function () {
-        Auth::logout();
-
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-
-        return redirect()->route('filament.admin.auth.login');
-    })->name('logout');
+    Route::post('/logout', LogoutController::class)->name('logout');
 });

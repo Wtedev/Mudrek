@@ -1,13 +1,4 @@
-body {
-    background: #f8fafc !important;
-    font-family: Arial, sans-serif !important;
-}
-
-.test-css-loaded {
-    outline: 5px solid red !important;
-}
-
-/* Served as a static file; Tailwind utilities come from CDN in layouts. */
+/* Optional mirror of built styles (primary source: resources/css via Vite). */
 
 /* Design tokens (from former @theme) */
 :root {
