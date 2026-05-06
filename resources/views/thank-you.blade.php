@@ -155,7 +155,7 @@ $whatsappGroupUrl = config('services.whatsapp.group_invite_url');
                     <div class="flex flex-col items-center justify-center gap-1.5 px-0.5 py-1 text-center">
                         <span class="sr-only">المدة</span>
                         <x-medrek-icon name="sun" class="h-4 w-4 shrink-0 text-slate-500 sm:h-5 sm:w-5" />
-                        <p class="break-words text-[10px] font-bold leading-tight text-emerald-800 sm:text-[11px]">{{ $eventDuration }}</p>
+                        <p class="break-words text-[10px] font-bold leading-tight text-[var(--gov-navy)] sm:text-[11px]">{{ $eventDuration }}</p>
                     </div>
                 </div>
             </section>
