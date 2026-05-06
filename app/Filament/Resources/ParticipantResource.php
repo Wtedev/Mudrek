@@ -140,7 +140,7 @@ class ParticipantResource extends Resource
                     ->getStateUsing(fn (Participant $record): string => $record->checked_in_at ? 'حضر' : 'لم يحضر'),
                 TextColumn::make('checked_in_at')
                     ->label('وقت التحضير')
-                    ->dateTime('d/m/Y H:i')
+                    ->dateTime('d/m/Y H:i', timezone: config('app.timezone'))
                     ->sortable()
                     ->placeholder('—'),
                 IconColumn::make('has_viewed_program_details')
@@ -148,7 +148,7 @@ class ParticipantResource extends Resource
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->label('تاريخ التسجيل')
-                    ->dateTime('d/m/Y')
+                    ->dateTime('d/m/Y', timezone: config('app.timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

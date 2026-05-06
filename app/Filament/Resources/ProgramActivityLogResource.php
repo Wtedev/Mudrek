@@ -70,7 +70,7 @@ class ProgramActivityLogResource extends Resource
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label('الوقت')
-                    ->dateTime('d/m/Y H:i')
+                    ->dateTime('d/m/Y H:i', timezone: config('app.timezone'))
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
