@@ -99,7 +99,7 @@
                     <h2 id="details-heading" class="text-center text-base font-bold text-[var(--gov-navy)] md:text-lg" data-reveal>تفاصيل الملتقى</h2>
                     <div class="mt-5 grid grid-cols-4 gap-x-2 gap-y-6 sm:mt-6 sm:gap-x-3 sm:gap-y-0 md:gap-x-5 lg:gap-x-6" data-reveal>
                         @foreach ([
-                        ['label' => 'المكان', 'value' => 'القصيم بريدة', 'value_secondary' => null, 'icon' => 'map-pin', 'title' => null],
+                        ['label' => 'المكان', 'value' => 'مسرح مركز التنمية الاجتماعية — بريدة', 'value_secondary' => null, 'icon' => 'map-pin', 'title' => null],
                         ['label' => 'المدة', 'value' => 'يوم واحد حضوري', 'value_secondary' => null, 'icon' => 'clock', 'title' => null],
                         ['label' => 'التاريخ', 'value' => 'يوم الاثنين 18 مايو', 'value_secondary' => null, 'icon' => 'calendar', 'title' => null],
                         ['label' => 'الوقت', 'value' => '4:00 م – 9:00 م', 'value_secondary' => null, 'icon' => 'sun', 'title' => 'من 4 م إلى 9 م'],
@@ -122,12 +122,12 @@
                             $venueNavUrl = is_string($venueNavUrl) && $venueNavUrl !== '' ? $venueNavUrl : '#';
                         @endphp
                         <div class="flex w-full min-w-0 flex-row items-center justify-between gap-4 sm:gap-6" dir="ltr">
-                            <a href="{{ $venueNavUrl }}" target="_blank" rel="noopener noreferrer" aria-label="التوجه لموقع مجمع مدارس قيم التعليمية" class="venue-nav-btn group relative z-[1]">
+                            <a href="{{ $venueNavUrl }}" target="_blank" rel="noopener noreferrer" aria-label="التوجه لموقع مسرح مركز التنمية الاجتماعية في بريدة" class="venue-nav-btn group relative z-[1]">
                                 <img src="{{ asset('images/venue-nav-icon.svg') }}" alt="" width="20" height="20" decoding="async" class="pointer-events-none block h-5 w-5 max-h-full max-w-full shrink-0 object-contain transition-transform duration-200 group-hover:scale-[1.03] sm:h-5 sm:w-5" aria-hidden="true" />
                             </a>
                             <div class="min-w-0 flex-1 space-y-1 text-right" dir="rtl">
-                                <p class="text-sm font-bold leading-snug text-[var(--gov-accent)] sm:text-base md:text-lg">مجمع مدارس قيم التعليمية</p>
-                                <p class="text-xs font-normal leading-snug text-[var(--gov-accent)] opacity-60 sm:text-sm md:text-base">المسرح</p>
+                                <p class="text-sm font-bold leading-snug text-[var(--gov-accent)] sm:text-base md:text-lg">مسرح مركز التنمية الاجتماعية</p>
+                                <p class="text-xs font-normal leading-snug text-[var(--gov-accent)] opacity-60 sm:text-sm md:text-base">القصيم — بريدة</p>
                             </div>
                         </div>
                     </div>
@@ -295,7 +295,6 @@
             'Full Logo WB.png',
             'masarat-1.png',
             'moe_logo.png',
-            'Qyem.png',
             'ccaf5315-373d-477c-9781-9252b0511311.png',
             ];
             @endphp

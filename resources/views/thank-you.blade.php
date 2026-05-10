@@ -62,7 +62,7 @@
 
 @section('content')
 @php
-$eventVenueLine = 'القصيم بريدة';
+$eventVenueLine = 'مسرح مركز التنمية الاجتماعية — بريدة';
 $eventDate = 'يوم الاثنين 18 مايو';
 $eventTime = '4:00 م – 9:00 م';
 $eventDuration = 'يوم واحد حضوري';

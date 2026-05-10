@@ -50,12 +50,17 @@ return [
         ),
     ],
 
+    /** الموقع الرسمي لجمعية كفاءات (زر الفوتر) */
+    'kafaat' => [
+        'website_url' => env('KAFAAT_WEBSITE_URL', 'https://kafaat.org.sa'),
+    ],
+
     /*
-    | رابط زر «التوجه للموقع» في صفحة تفاصيل الملتقى (خرائط أو موقع المدرسة).
+    | رابط زر «التوجه للموقع» في صفحة تفاصيل الملتقى (خرائط أو موقع مسرح الحدث).
     */
     'event_venue_url' => env(
         'EVENT_VENUE_URL',
-        'https://www.google.com/maps/search/?api=1&query='.rawurlencode('مسرح مدارس قيم التعليمية، بريدة')
+        'https://www.google.com/maps/search/?api=1&query='.rawurlencode('مسرح مركز التنمية الاجتماعية، بريدة')
     ),
 
 ];
