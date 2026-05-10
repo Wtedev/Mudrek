@@ -203,7 +203,7 @@ $selectField = $field . ' appearance-none pe-12';
                     <select id="referral_source" name="referral_source" x-model="referralSource" class="{{ $selectField }}" x-init="referralSource = $el.value || ''">
                         <option value="">— اختر —</option>
                         @foreach ([
-                        'تويتر', 'إنستقرام', 'تيك توك', 'المدرسة أو الجهة التعليمية', 'صديق أو عائلة', 'إعلان', 'أخرى',
+                        'منصة X', 'إنستقرام', 'تيك توك', 'المدرسة أو الجهة التعليمية', 'صديق أو عائلة', 'إعلان', 'أخرى',
                         ] as $ref)
                         <option value="{{ $ref }}" @selected(old('referral_source')===$ref)>{{ $ref }}</option>
                         @endforeach

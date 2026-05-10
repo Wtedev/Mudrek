@@ -30,11 +30,20 @@ class RegistrationController extends Controller
     public function thankYou(Participant $participant): View
     {
         $token = (string) $participant->checkin_token;
+        $gender = trim((string) $participant->gender);
+
+        $whatsappGroupUrl = match ($gender) {
+            'ذكر' => config('services.whatsapp.group_invite_url_male'),
+            'أنثى' => config('services.whatsapp.group_invite_url_female'),
+            default => config('services.whatsapp.group_invite_url'),
+        };
+        $whatsappGroupUrl = is_string($whatsappGroupUrl) && $whatsappGroupUrl !== '' ? $whatsappGroupUrl : null;
 
         return view('thank-you', [
             'participant' => $participant,
             'checkinToken' => $token,
             'qrImageSrc' => $this->buildCheckinQrDataUri($token),
+            'whatsappGroupUrl' => $whatsappGroupUrl,
         ]);
     }
 

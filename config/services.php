@@ -36,7 +36,18 @@ return [
     ],
 
     'whatsapp' => [
+        /** رابط احتياطي إن لم يُعرف الجنس أو كانت القيمة غير متوقعة */
         'group_invite_url' => env('WHATSAPP_GROUP_INVITE_URL'),
+        /** مجموعة المشاركين — ذكر */
+        'group_invite_url_male' => env(
+            'WHATSAPP_GROUP_INVITE_URL_MALE',
+            'https://chat.whatsapp.com/JT3lsUQg2wD1OLeAj26rKh?mode=gi_t'
+        ),
+        /** مجموعة المشاركات — أنثى */
+        'group_invite_url_female' => env(
+            'WHATSAPP_GROUP_INVITE_URL_FEMALE',
+            'https://chat.whatsapp.com/Gs9ZQcHbhRYFuDFbsVEMY7?mode=gi_t'
+        ),
     ],
 
     /*

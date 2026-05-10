@@ -66,7 +66,7 @@ $eventVenueLine = 'القصيم بريدة';
 $eventDate = 'يوم الاثنين 18 مايو';
 $eventTime = '4:00 م – 9:00 م';
 $eventDuration = 'يوم واحد حضوري';
-$whatsappGroupUrl = config('services.whatsapp.group_invite_url');
+/** @var string|null $whatsappGroupUrl يُمرَّر من RegistrationController حسب الجنس (ذكر / أنثى) مع احتياطي من الإعدادات */
 @endphp
 
 <div class="relative flex min-h-dvh flex-col items-center justify-center bg-[#e8f2f2] px-3 py-8 sm:px-5 sm:py-10 [font-family:inherit]">
