@@ -263,23 +263,23 @@ $selectField = $field . ' appearance-none pe-12';
                 void this.formTick;
                 if (this.step === 1) return this.viewedProgram === true;
                 if (this.step === 2) {
-                    const full = document.getElementById('full_name') ? .value ? .trim();
-                    const nid = document.getElementById('national_id') ? .value ? .trim();
-                    const mob = document.getElementById('mobile') ? .value ? .trim();
-                    const em = document.getElementById('email') ? .value ? .trim();
-                    const nat = document.getElementById('nationality') ? .value;
+                    const full = document.getElementById('full_name') ?.value ?.trim();
+                    const nid = document.getElementById('national_id') ?.value ?.trim();
+                    const mob = document.getElementById('mobile') ?.value ?.trim();
+                    const em = document.getElementById('email') ?.value ?.trim();
+                    const nat = document.getElementById('nationality') ?.value;
                     if (!full || !nid || !mob || !em || !nat) return false;
                     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
                 }
-                if (this.step === 3) return !!document.getElementById('education_stage') ? .value;
+                if (this.step === 3) return !!document.getElementById('education_stage') ?.value;
                 if (this.step === 4) {
-                    return !!document.getElementById('gender') ? .value && !!document.getElementById('region') ? .value;
+                    return !!document.getElementById('gender') ?.value && !!document.getElementById('region') ?.value;
                 }
                 if (this.step === 5) return !!document.querySelector('input[name="commitment_status"]:checked');
                 if (this.step === 6) {
-                    const ref = document.getElementById('referral_source') ? .value;
+                    const ref = document.getElementById('referral_source') ?.value;
                     if (!ref) return false;
-                    if (ref === 'أخرى') return !!document.getElementById('referral_source_other') ? .value ? .trim();
+                    if (ref === 'أخرى') return !!document.getElementById('referral_source_other') ?.value ?.trim();
                     return true;
                 }
                 return true;
@@ -295,11 +295,11 @@ $selectField = $field . ' appearance-none pe-12';
                     return true;
                 }
                 if (this.step === 2) {
-                    const full = document.getElementById('full_name') ? .value ? .trim();
-                    const nid = document.getElementById('national_id') ? .value ? .trim();
-                    const mob = document.getElementById('mobile') ? .value ? .trim();
-                    const em = document.getElementById('email') ? .value ? .trim();
-                    const nat = document.getElementById('nationality') ? .value;
+                    const full = document.getElementById('full_name') ?.value ?.trim();
+                    const nid = document.getElementById('national_id') ?.value ?.trim();
+                    const mob = document.getElementById('mobile') ?.value ?.trim();
+                    const em = document.getElementById('email') ?.value ?.trim();
+                    const nat = document.getElementById('nationality') ?.value;
                     let ok = true;
                     if (!full) {
                         this.clientErrors.full_name = 'هذا الحقل مطلوب.';
@@ -327,7 +327,7 @@ $selectField = $field . ' appearance-none pe-12';
                     return ok;
                 }
                 if (this.step === 3) {
-                    const v = document.getElementById('education_stage') ? .value;
+                    const v = document.getElementById('education_stage') ?.value;
                     if (!v) {
                         this.clientErrors.education_stage = 'يرجى اختيار المرحلة الدراسية.';
                         return false;
@@ -336,11 +336,11 @@ $selectField = $field . ' appearance-none pe-12';
                 }
                 if (this.step === 4) {
                     let ok = true;
-                    if (!document.getElementById('gender') ? .value) {
+                    if (!(document.getElementById('gender')?.value)) {
                         this.clientErrors.gender = 'يرجى اختيار الجنس.';
                         ok = false;
                     }
-                    if (!document.getElementById('region') ? .value) {
+                    if (!(document.getElementById('region')?.value)) {
                         this.clientErrors.region = 'يرجى اختيار المنطقة.';
                         ok = false;
                     }
@@ -354,13 +354,13 @@ $selectField = $field . ' appearance-none pe-12';
                     return true;
                 }
                 if (this.step === 6) {
-                    const ref = document.getElementById('referral_source') ? .value;
+                    const ref = document.getElementById('referral_source') ?.value;
                     if (!ref) {
                         this.clientErrors.referral_source = 'يرجى اختيار مصدر المعرفة.';
                         return false;
                     }
                     if (ref === 'أخرى') {
-                        const o = document.getElementById('referral_source_other') ? .value ? .trim();
+                        const o = document.getElementById('referral_source_other') ?.value ?.trim();
                         if (!o) {
                             this.clientErrors.referral_source_other = 'يرجى التوضيح.';
                             return false;
@@ -378,8 +378,8 @@ $selectField = $field . ' appearance-none pe-12';
 
             prev() {
                 if (this.step > 1) this.step--;
-            }
-        , };
+            },
+        };
     }
 
 </script>

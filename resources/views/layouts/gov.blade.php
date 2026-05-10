@@ -146,7 +146,7 @@
     </style>
     @stack('head')
 </head>
-<body class="min-h-screen text-slate-800 antialiased">
+<body class="flex min-h-dvh flex-col text-slate-800 antialiased">
     <header class="app-header-glass medrek-motion-header sticky top-0 z-50">
         <div class="app-header-inner">
             <a href="{{ route('home') }}" class="flex items-center justify-center outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/90" aria-label="ملتقى مدرك 4 — الصفحة الرئيسية">
@@ -197,7 +197,7 @@
     </section>
     @endif
 
-    <main class="medrek-motion-page min-h-[calc(100dvh-14.5rem)] sm:min-h-[calc(100dvh-16rem)]">
+    <main class="medrek-motion-page w-full min-w-0">
         @yield('content')
     </main>
 
