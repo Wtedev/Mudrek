@@ -132,9 +132,9 @@
 }
 
 .hero-image-wrap {
-    aspect-ratio: 1950 / 1597;
-    overflow: hidden;
-    contain: paint;
+    /* بدون aspect-ratio ثابت: تُعرض الصورة كاملة (object-contain + object-top في القالب) */
+    overflow: visible;
+    contain: layout style;
     background: linear-gradient(90deg, #e7f2f3 20%, #f2f8f9 50%, #e7f2f3 80%);
     background-size: 220% 100%;
     animation: medrek-hero-shimmer 1.15s linear infinite;
@@ -402,6 +402,73 @@
     }
 }
 
+/* شريط الجهات المنظمة (تحت الهيدر): نفس ارتفاع الشعار + مسافة ثابتة (لا عرض ثابت للخانة حتى لا يُضغط الشعار) */
+.medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set {
+    column-gap: 2rem;
+    padding-block: 0;
+}
+
+.medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+    max-width: min(14rem, 38vw);
+    height: 2.75rem;
+    min-height: 2.75rem;
+    padding-inline: 0.25rem;
+    overflow: visible;
+}
+
+.medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+    display: block;
+    height: 2.25rem;
+    width: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (min-width: 640px) {
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+        height: 3rem;
+        min-height: 3rem;
+        max-width: min(16rem, 32vw);
+    }
+
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        height: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+        height: 3.25rem;
+        min-height: 3.25rem;
+        max-width: 17rem;
+    }
+
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        height: 2.625rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot {
+        height: 3.5rem;
+        min-height: 3.5rem;
+        max-width: 18rem;
+    }
+
+    .medrek-organizers-ticker .medrek-partners-viewport .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        height: 2.875rem;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .medrek-hero-stage {
         position: relative;
@@ -481,6 +548,82 @@
         filter: none;
         transform: none;
     }
+
+    .medrek-organizers-ticker .medrek-partners-set > .medrek-partner-slot {
+        max-width: min(12rem, 56vw);
+        max-height: 3.25rem;
+    }
+
+    .medrek-organizers-ticker .medrek-partners-set > .medrek-partner-slot .medrek-partner-img {
+        max-height: 2.625rem;
+    }
+}
+
+/* --- Responsive hero / banner (WebP <picture>, object-fit: cover) --- */
+.medrek-hero-banner {
+    contain: layout style;
+}
+
+.medrek-hero-banner__viewport {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    aspect-ratio: 1080 / 1350;
+    max-height: min(88svh, 920px);
+}
+
+@media (min-width: 768px) {
+    .medrek-hero-banner__viewport {
+        aspect-ratio: 1920 / 850;
+        max-height: min(78svh, 850px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .medrek-hero-banner__viewport {
+        max-height: min(82svh, 900px);
+    }
+}
+
+@media (min-width: 1440px) {
+    .medrek-hero-banner__viewport {
+        max-height: min(85svh, 920px);
+    }
+}
+
+.medrek-hero-banner__picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.medrek-hero-banner__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.medrek-hero-banner__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.58) 0%,
+        rgba(15, 23, 42, 0.14) 40%,
+        transparent 68%
+    );
+}
+
+.medrek-hero-banner__overlay {
+    z-index: 2;
 }
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';

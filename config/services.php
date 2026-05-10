@@ -39,4 +39,12 @@ return [
         'group_invite_url' => env('WHATSAPP_GROUP_INVITE_URL'),
     ],
 
+    /*
+    | رابط زر «التوجه للموقع» في صفحة تفاصيل الملتقى (خرائط أو موقع المدرسة).
+    */
+    'event_venue_url' => env(
+        'EVENT_VENUE_URL',
+        'https://www.google.com/maps/search/?api=1&query='.rawurlencode('مسرح مدارس قيم التعليمية، بريدة')
+    ),
+
 ];

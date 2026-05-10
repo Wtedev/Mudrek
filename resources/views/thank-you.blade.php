@@ -62,10 +62,10 @@
 
 @section('content')
 @php
-$eventVenueLine = 'مدارس قيم التعليمية';
-$eventDate = '17 مايو';
-$eventTime = '4 م - 9 م';
-$eventDuration = 'يوم واحد';
+$eventVenueLine = 'القصيم بريدة';
+$eventDate = 'يوم الاثنين 18 مايو';
+$eventTime = '4:00 م – 9:00 م';
+$eventDuration = 'يوم واحد حضوري';
 $whatsappGroupUrl = config('services.whatsapp.group_invite_url');
 @endphp
 
